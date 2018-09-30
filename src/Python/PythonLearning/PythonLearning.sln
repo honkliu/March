@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonLearning", "PythonLearning\PythonLearning.pyproj", "{78C52FBF-D119-42E9-9A4D-327A980F4E42}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TorchImage", "TorchImage\TorchImage.pyproj", "{A74CD203-E92F-4BCF-B77A-1630A9234915}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CapsuleNet", "CapsuleNet\CapsuleNet.pyproj", "{2CFC421F-8FE6-4B1F-9C08-E0DB2F333411}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CapsuleKeras", "CapsuleKeras\CapsuleKeras.pyproj", "{18C3ED7D-A789-439A-8A73-D64A5331F999}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,8 @@ Global
 		{A74CD203-E92F-4BCF-B77A-1630A9234915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFC421F-8FE6-4B1F-9C08-E0DB2F333411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CFC421F-8FE6-4B1F-9C08-E0DB2F333411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C3ED7D-A789-439A-8A73-D64A5331F999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C3ED7D-A789-439A-8A73-D64A5331F999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
