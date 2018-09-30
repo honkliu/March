@@ -1,0 +1,10 @@
+flask
+flask-login
+flask-mail
+flask-sqlalchemy
+flup
+flask-babel
+flask-wtf
+flask-whooshalchemy
+sqlalchemy-migrate
+

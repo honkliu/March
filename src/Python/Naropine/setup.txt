@@ -1,0 +1,5 @@
+pip install virutualenv
+virtualenv PrivateEnv
+PrivateEnv\scripts\pip install -r req.txt 
+git push -u origin master:master
+
