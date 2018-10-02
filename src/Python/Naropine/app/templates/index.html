@@ -1,15 +1,11 @@
-<html>
-    <head>
-        <title> {{title}} </title>
-    </head>
-    <body>
-        {% if user.name %}
-        <h1> Welcome, {{user.name}}</h1>
-        {% else %}
+{% extends "base.html" %}
+{% block content %}
+{% if user.name %}
+    <h1> Welcome, {{user.name}}</h1>
+{% else %}
         <h1> Welcome, Somebody</h1>
-        {% endif %}
-        {% for post in posts %}
-        <p>{{post.author.nickname}} says: <b> {{post.body}}</b> </p>
-        {% endfor %}
-    </body>
-</html>
+{% endif %}
+{% for post in posts %}
+    <p>{{post.author.nickname}} says: <b> {{post.body}}</b> </p>
+{% endfor %}
+{% endblock %}
