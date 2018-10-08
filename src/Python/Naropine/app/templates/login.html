@@ -2,13 +2,18 @@
 {% block content %}
 
 <h1>Sign in</h1>
-<form action="" method="POST" name="login">
-    {{form.hidden_tag()}}
+<form action="" method="POST" novalidate>
+   {{form.hidden_tag()}}
     <p>
-        Please enter your OpenID: <br>
-        {{form.openid(size = 80)}}
+        Please enter your name here: <br>
+        {{form.username(size = 80)}}
     </p>
+    <p>
+        Please enter your password: <br>
+        {{form.password(size = 80)}}
+    </p>
+        
     <p>{{form.remember_me}} Remember</p>
-    <p><input type="submit" value="Sign In"></p>
+    <p>{{form.submit}}</p>
 </form>
 {% endblock %}

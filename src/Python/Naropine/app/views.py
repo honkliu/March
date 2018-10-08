@@ -25,7 +25,16 @@ def index() :
 def login() :
 	form = LoginForm()
 
+	print('I am coming: ', form.username.data, form.password.data)
+	print(form.username.data)
 	return render_template("login.html",
 			title = 'Sign in',
 			form = form)
 
+@app.route('/login1')
+def login1() :
+	form = LoginForm()
+
+	return render_template("login.html",
+			title = 'Sign in',
+			form = form)
