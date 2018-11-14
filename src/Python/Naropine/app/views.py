@@ -29,3 +29,7 @@ def login() :
 			title = 'Sign in',
 			form = form)
 
+@app.route('/user/<username>/popup')
+def user_popup(username) :
+	user = 'Shuguang Liu'
+	return render_template('user_popup.html', user = user)

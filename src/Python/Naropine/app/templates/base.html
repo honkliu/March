@@ -1,6 +1,39 @@
 <html>
     <head>
         <title> {{title}} </title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(
+        function() {
+            $('.UserType').hover(
+                function(event) {
+                    var elem = $(event.currentTarget)
+                    timer = setTimeout(function()
+                    {
+                        timer = null;
+                        xhr = $.ajax('/user/shuguanl/popup').done(
+                            function(data) {
+                                xhr = null
+                                elem.popover({
+                                    trigger: true,
+                                    html: true,
+                                    animation: false,
+                                    container: elem,
+                                    content: data
+                                }).popover('show');
+                                flask_moment_render_all();
+                            }
+                        );
+                    }, 1000);
+                },
+                function(event) {
+                    var elem = $(event.currentTarget)
+                    alert('leaving')
+                }
+            );
+        });
+    </script>
     </head>
     <body>
         {% block content %}

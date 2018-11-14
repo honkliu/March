@@ -6,6 +6,7 @@
         <h1> Welcome, Somebody</h1>
 {% endif %}
 {% for post in posts %}
+    <span class='UserType'><a href = "{{url_for('login')}}">post.author.nickname</a></span>
     <p>{{post.author.nickname}} says: <b> {{post.body}}</b> </p>
 {% endfor %}
 {% endblock %}
