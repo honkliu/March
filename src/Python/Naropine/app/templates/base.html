@@ -1,26 +1,29 @@
 <html>
     <head>
         <title> {{title}} </title>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-    <script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
         $(document).ready(
         function() {
+            var timer = null;
+            var xhr = null;
             $('.UserType').hover(
                 function(event) {
                     var elem = $(event.currentTarget)
-                    timer = setTimeout(function()
-                    {
+                    timer = setTimeout(function() {
                         timer = null;
                         xhr = $.ajax('/user/shuguanl/popup').done(
                             function(data) {
-                                xhr = null
+                                xhr = null;
                                 elem.popover({
-                                    trigger: true,
+                                    trigger: 'manual',
                                     html: true,
                                     animation: false,
                                     container: elem,
-                                    content: data
+                                    content: data,
+                                    //placement: 'bottom'
                                 }).popover('show');
                                 flask_moment_render_all();
                             }
@@ -29,11 +32,20 @@
                 },
                 function(event) {
                     var elem = $(event.currentTarget)
-                    alert('leaving')
+
+                    if (timer) {
+                        clearTimeout(timer);
+                        timer = null;
+                    } else if (xhr) {
+                        xhr.abort();
+                        xhr = null;
+                    } else {
+                        elem.popover('destroy');
+                    }
                 }
             );
         });
-    </script>
+        </script>
     </head>
     <body>
         {% block content %}
