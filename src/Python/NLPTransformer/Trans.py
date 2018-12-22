@@ -437,33 +437,33 @@ def run_epoch(dataiter, model, loss_compute, epoch):
     total_loss = 0
     tokens = 0
     
-    OUTPUTFREQ = 1
+    OUTPUTFREQ = 50
     for i, newbatch in enumerate(dataiter):
     
         batch = Batch(newbatch.src.transpose(0,1), newbatch.trg.transpose(0,1))
         
         out = model.forward(batch.src.cuda(), batch.trg.cuda(), 
                     batch.src_mask.cuda(), batch.trg_mask.cuda())
-        loss = loss_compute(out, batch.trg_y.cuda(), batch.ntokens.cuda)
+        loss = loss_compute(out, batch.trg_y.cuda(), batch.ntokens.cuda())
         
         total_loss += loss
         total_tokens += batch.ntokens
         
         if i % OUTPUTFREQ == 0:
             elapsed = time.time() - start
-            print("Epoch %d Step: %d Loss: %f Tokens per Sec: %f" %
-                    (epoch, i, loss / batch.ntokens, tokens / elapsed))
+            print("Epoch %d Step: %d Loss: %f Tokens per Sec: %f, time per 50tep: %f" %
+                    (epoch, i, loss / batch.ntokens, tokens / elapsed, elapsed))
             start = time.time()
             tokens = 0            
     return total_loss / total_tokens
 
 from torchtext.data import Iterator, BucketIterator
 
-model = make_model(len(SRC.vocab), len(TGT.vocab), N=6)
+model = make_model(len(SRC.vocab), len(TGT.vocab), N=3, d_model=128)
 pad_idx = TGT.vocab.stoi["<blank>"]
 criterion = LabelSmoothing(size = len(TGT.vocab), padding_idx=0, smoothing=0.1)
 
-BATCHSIZE=2
+BATCHSIZE=4
 model.cuda()
 criterion.cuda()
 
