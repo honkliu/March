@@ -1,0 +1,10 @@
+README.rst
+quantiphy.py
+setup.cfg
+setup.py
+quantiphy.egg-info/PKG-INFO
+quantiphy.egg-info/SOURCES.txt
+quantiphy.egg-info/dependency_links.txt
+quantiphy.egg-info/requires.txt
+quantiphy.egg-info/top_level.txt
+quantiphy.egg-info/zip-safe
