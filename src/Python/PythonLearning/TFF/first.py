@@ -41,3 +41,6 @@ if six.PY3:
       tff.framework.set_default_executor()
 
 tff.federated_computation(lambda: 'Hello, World!')()
+
+#do not know how.
+# good
