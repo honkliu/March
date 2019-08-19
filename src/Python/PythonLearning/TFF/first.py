@@ -42,5 +42,21 @@ if six.PY3:
 
 tff.federated_computation(lambda: 'Hello, World!')()
 
+#@test {"output": "ignore"}
+emnist_train, emnist_test = tff.simulation.datasets.emnist.load_data()
+
+len(emnist_train.client_ids)
+
+example_dataset = emnist_train.create_tf_dataset_for_client(
+    emnist_train.client_ids[0])
+
+example_element = iter(example_dataset).next()
+
+example_element['label'].numpy()
+from matplotlib import pyplot as plt
+plt.imshow(example_element['pixels'].numpy(), cmap='gray', aspect='equal')
+plt.grid('off')
+_ = plt.show()
+
 #do not know how.
 # good
