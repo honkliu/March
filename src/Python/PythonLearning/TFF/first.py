@@ -122,7 +122,7 @@ for round_num in range(2,5):
 
 MnistVariables = collections.namedtuple(
     'MnistVariables', 'weights bias num_examples loss_sum accuracy_sum')
-    
+
 def create_mnist_variables():
     return MnistVariables(
         weights = tf.Variable(
@@ -140,11 +140,11 @@ def create_mnist_variables():
         loss_sum = tf.Variable(
             0.0,
             name = 'loss_sum',
-            trainale= False),
+            trainable= False),
         accuracy_sum = tf.Variable(
             0.0,
             name = 'accuracy_sum',
-            trainale= False))
+            trainable= False))
 
 def mnist_forward_pass(variables, batch):
     y = tf.nn.softmax(tf.matmul(batch['x'], variables.weights) + variables.bias)
