@@ -40,8 +40,8 @@ NUM_CLIENTS = 10
 
 
 if six.PY3:
-  tff.framework.set_default_executor(
-      tff.framework.create_local_executor(NUM_CLIENTS))
+  tff.framework.set_default_executor()
+#      tff.framework.create_local_executor(NUM_CLIENTS))
 
 tff.federated_computation(lambda: 'Hello, World!')()
 
@@ -115,3 +115,7 @@ state = iterative_process.initialize()
 #@test {"timeout": 600, "output": "ignore"}
 state, metrics = iterative_process.next(state, federated_train_data)
 print('round  1, metrics={}'.format(metrics))
+
+for round_num in range(2,11):
+    state, metrics = iterative_process.next(state, federated_train_data)
+    print('round  {:2d}, metrics={}'.format(round_num, metrics))
