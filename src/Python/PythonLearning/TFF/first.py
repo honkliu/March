@@ -120,6 +120,9 @@ for round_num in range(2,5):
     state, metrics = iterative_process.next(state, federated_train_data)
     print('round  {:2d}, metrics={}'.format(round_num, metrics))
 
+MnistVariables = collections.namedtuple(
+    'MnistVariables', 'weights bias num_examples loss_sum accuracy_sum')
+    
 def create_mnist_variables():
     return MnistVariables(
         weights = tf.Variable(
