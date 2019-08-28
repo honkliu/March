@@ -153,7 +153,7 @@ def mnist_forward_pass(variables, batch):
 
     flat_labels = tf.reshape(batch['y'], [-1])
     loss = -tf.reduce_mean(tf.reduce_sum(tf.one_hot(flat_labels, 10) * tf.log(y), reduction_indices=[1]))
-    accuracy =tf.reduce_mean(tf.cast(tf.equal(predictions, flat_lables), tf.float32))
+    accuracy =tf.reduce_mean(tf.cast(tf.equal(predictions, flat_labels), tf.float32))
 
     num_examples = tf.cast(tf.size(batch['y']), tf.float32)
     variables.num_examples.assign_add(num_examples)
