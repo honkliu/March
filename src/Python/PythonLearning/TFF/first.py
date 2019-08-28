@@ -35,10 +35,10 @@ NUM_CLIENTS = 2
 # using an older version of TFF without the high-performance
 # executor stack. Call `tff.framework.set_default_executor()`
 # instead to use the default reference runtime.
-if six.PY3:
+#if six.PY3:
 #      tff.framework.set_default_executor(
 #                    tff.framework.create_local_executor(NUM_CLIENTS))
-      tff.framework.set_default_executor()
+#      tff.framework.set_default_executor()
 
 tff.federated_computation(lambda: 'Hello, World!')()
 
