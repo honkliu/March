@@ -226,7 +226,7 @@ class MnistTrainableModel(MnistModel, tff.learning.TrainableModel):
 iterative_process = tff.learning.build_federated_averaging_process(
     MnistTrainableModel)
 
- state = iterative_process.initialize()
+state = iterative_process.initialize()
 
  #@test {"timeout": 600, "output": "ignore"}
 state, metrics = iterative_process.next(state, federated_train_data)
