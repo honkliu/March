@@ -25,6 +25,8 @@ def index() :
 def login() :
 	form = LoginForm()
 
+	print('I am coming: ', form.username.data, form.password.data)
+	print(form.username.data)
 	return render_template("login.html",
 			title = 'Sign in',
 			form = form)
@@ -33,3 +35,10 @@ def login() :
 def user_popup(username) :
 	user = 'Shuguang Liu'
 	return render_template('user_popup.html', user = user)
+@app.route('/login1')
+def login1() :
+	form = LoginForm()
+
+	return render_template("login.html",
+			title = 'Sign in',
+			form = form)
