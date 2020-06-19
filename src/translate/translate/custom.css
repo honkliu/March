@@ -1,0 +1,36 @@
+#translation {
+    display: none;
+    position: fixed;
+    left: 100px;
+    top: 100px;
+    z-index: 99999;
+    /* transform: translateX(-50%); */
+    box-shadow: 5px 5px 10px 0px gray;
+    background-color: #fff;
+    padding: 20px 20px 10px 20px;
+}
+#translateResult {
+    display: none;
+    max-width: 600px;
+    min-width: 400px;
+    max-height: 400px;
+    overflow: auto;
+}
+#cancleButton {
+    min-width: 80px;
+    height: 32px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    line-height: 32px;
+    background-color: rgb(0, 120, 212);
+    color: rgb(255, 255, 255);
+    float: right;
+}
+#audio {
+    display: none;
+}
