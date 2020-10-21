@@ -14,5 +14,7 @@ def tanh2(x):
     a = x = x2*x/3 + 2*x2*x2*x/15 - 17*x2*x2*x2*x/315
     return a
 
+a = [[1,2,3], [4,5,6], [7,8,9]]
+print(a)
 print(tanh1(3.9))
 print(tanh2(3.9))
