@@ -1,0 +1,35 @@
+{
+  "name": "Translate plug-in",
+  "version": "0.0.6",
+  "manifest_version": 2,
+  "browser_action":{
+    // "default_popup": "popup.html",
+    "default_title": "translate your copy",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": ["contextMenus", "tabs", "activeTab"],
+  "background": {
+    "scripts": ["bundle.js"],
+    "persistent": false
+  },
+  "description": "Build an Extension!",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "css": ["custom.css"],
+      "run_at": "document_end"
+    }
+  ]
+}

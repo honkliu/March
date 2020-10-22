@@ -1,0 +1,41 @@
+{
+  "name": "translatetool",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "office-ui-fabric-react": "^7.54.1",
+    "react": "^16.11.0",
+    "react-audio-player": "^0.11.1",
+    "react-dom": "^16.11.0",
+    "react-dragger-r": "^0.0.12",
+    "react-hot-loader": "^4.12.15",
+    "react-scripts": "3.2.0",
+    "request-promise": "^4.2.4",
+    "xmlbuilder": "^13.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build-chrome-ext": "react-scripts build && copy src\\background.js build && copy src\\content-script.js build && copy src\\custom.css build && copy src\\jquery-3.1.0.js build && browserify build/background.js > build/bundle.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
