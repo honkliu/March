@@ -1,0 +1,801 @@
+{
+  "linkDataArray": [
+    {
+      "to": -7,
+      "toPort": "top0",
+      "points": [
+        -401.984375,
+        49,
+        -401.984375,
+        59,
+        -401.984375,
+        69,
+        -225.984375,
+        69,
+        -225.984375,
+        79,
+        -225.984375,
+        89
+      ],
+      "from": -5,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -7,
+      "toPort": "top1",
+      "points": [
+        -81.984375,
+        50,
+        -81.984375,
+        60,
+        -81.984375,
+        69.5,
+        -215.984375,
+        69.5,
+        -215.984375,
+        79,
+        -215.984375,
+        89
+      ],
+      "from": -6,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -6,
+      "toPort": "top0",
+      "points": [
+        -81.984375,
+        -80,
+        -81.984375,
+        -70,
+        -81.984375,
+        -53,
+        -81.984375,
+        -53,
+        -81.984375,
+        -36,
+        -81.984375,
+        -26
+      ],
+      "from": -4,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -4,
+      "toPort": "top0",
+      "points": [
+        -81.984375,
+        -187,
+        -81.984375,
+        -177,
+        -81.984375,
+        -171.5,
+        -81.984375,
+        -171.5,
+        -81.984375,
+        -166,
+        -81.984375,
+        -156
+      ],
+      "from": -2,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -3,
+      "toPort": "top0",
+      "points": [
+        -401.984375,
+        -184,
+        -401.984375,
+        -174,
+        -401.984375,
+        -165.5,
+        -401.984375,
+        -165.5,
+        -401.984375,
+        -157,
+        -401.984375,
+        -147
+      ],
+      "from": -1,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -5,
+      "toPort": "top0",
+      "points": [
+        -401.984375,
+        -71,
+        -401.984375,
+        -61,
+        -401.984375,
+        -49,
+        -401.984375,
+        -49,
+        -401.984375,
+        -37,
+        -401.984375,
+        -27
+      ],
+      "from": -3,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -10,
+      "toPort": "top0",
+      "points": [
+        -220.984375,
+        165,
+        -220.984375,
+        175,
+        -220.984375,
+        184.5,
+        -220.984375,
+        184.5,
+        -220.984375,
+        194,
+        -220.984375,
+        204
+      ],
+      "from": -7,
+      "fromPort": "bottom0"
+    },
+    {
+      "to": -9,
+      "toPort": "top0",
+      "points": [
+        -220.984375,
+        280,
+        -220.984375,
+        290,
+        -220.984375,
+        297.99999999999983,
+        -220.98437499999994,
+        297.99999999999983,
+        -220.98437499999994,
+        305.99999999999966,
+        -220.98437499999994,
+        315.99999999999966
+      ],
+      "from": -10,
+      "fromPort": "bottom0"
+    }
+  ],
+  "copiesArrayObjects": true,
+  "copiesKey": false,
+  "linkToPortIdProperty": "toPort",
+  "class": "GraphLinksModel",
+  "nodeDataArray": [
+    [
+      {
+        "parent": 5
+      },
+      {
+        "title": "NeuronInput_1"
+      },
+      {
+        "type": "NeuronInput"
+      },
+      {
+        "id": "NeuronBlocks::function::NeuronInput"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.NeuronInput"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": []
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "name": "question"
+      },
+      {
+        "fill": "#4484a0"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -1
+      },
+      {
+        "loc": "-401.98437499999994 -221.9999999999999"
+      }
+    ],
+    [
+      {
+        "parent": 5
+      },
+      {
+        "title": "NeuronInput_2"
+      },
+      {
+        "type": "NeuronInput"
+      },
+      {
+        "id": "NeuronBlocks::function::NeuronInput"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.NeuronInput"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": []
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "name": "answer"
+      },
+      {
+        "fill": "#4484a0"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -2
+      },
+      {
+        "loc": "-81.98437500000003 -224.99999999999994"
+      }
+    ],
+    [
+      {
+        "parent": 2
+      },
+      {
+        "title": "BiLSTM_1"
+      },
+      {
+        "type": "BiLSTM"
+      },
+      {
+        "id": "NeuronBlocks::basic::BiLSTM"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.BiLSTM"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "dropout": "0.2"
+      },
+      {
+        "hidden_dim": "64"
+      },
+      {
+        "num_layers": "2"
+      },
+      {
+        "fill": "#8696a6"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -3
+      },
+      {
+        "loc": "-401.984375 -109"
+      }
+    ],
+    [
+      {
+        "parent": 2
+      },
+      {
+        "title": "BiLSTM_2"
+      },
+      {
+        "type": "BiLSTM"
+      },
+      {
+        "id": "NeuronBlocks::basic::BiLSTM"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.BiLSTM"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "dropout": "0.2"
+      },
+      {
+        "hidden_dim": "64"
+      },
+      {
+        "num_layers": "2"
+      },
+      {
+        "fill": "#8696a6"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -4
+      },
+      {
+        "loc": "-81.984375 -118"
+      }
+    ],
+    [
+      {
+        "parent": 2
+      },
+      {
+        "title": "Pooling_1"
+      },
+      {
+        "type": "Pooling"
+      },
+      {
+        "id": "NeuronBlocks::basic::Pooling"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.Pooling"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "pool_axis": "1"
+      },
+      {
+        "pool_type": "max"
+      },
+      {
+        "fill": "#8696a6"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -5
+      },
+      {
+        "loc": "-401.98437499999983 11"
+      }
+    ],
+    [
+      {
+        "parent": 2
+      },
+      {
+        "title": "Pooling_2"
+      },
+      {
+        "type": "Pooling"
+      },
+      {
+        "id": "NeuronBlocks::basic::Pooling"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.Pooling"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "pool_axis": "1"
+      },
+      {
+        "pool_type": "max"
+      },
+      {
+        "fill": "#8696a6"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -6
+      },
+      {
+        "loc": "-81.984375 12"
+      }
+    ],
+    [
+      {
+        "parent": 8
+      },
+      {
+        "title": "Combination_1"
+      },
+      {
+        "type": "Combination"
+      },
+      {
+        "id": "NeuronBlocks::op::Combination"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.Combination"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          },
+          {
+            "portColor": "#faa8e5",
+            "portId": "top1"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "operations": "[\"origin\", \"difference\", \"dot_multiply\"]"
+      },
+      {
+        "fill": "#f38d8d"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -7
+      },
+      {
+        "loc": "-220.984375 127"
+      }
+    ],
+    [
+      {
+        "parent": 5
+      },
+      {
+        "title": "NeuronOutput_1"
+      },
+      {
+        "type": "NeuronOutput"
+      },
+      {
+        "id": "NeuronBlocks::function::NeuronOutput"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.NeuronOutput"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": []
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "name": ""
+      },
+      {
+        "fill": "#4484a0"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -9
+      },
+      {
+        "loc": "-220.9843749999999 353.9999999999996"
+      }
+    ],
+    [
+      {
+        "parent": 2
+      },
+      {
+        "title": "Linear_1"
+      },
+      {
+        "type": "Linear"
+      },
+      {
+        "id": "NeuronBlocks::basic::Linear"
+      },
+      {
+        "framework": "NeuronBlocks"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.neuron_bricks.neuronblocks.Linear"
+      },
+      {
+        "class": "neuronblocks"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "activation": "PReLU"
+      },
+      {
+        "batch_norm": "True"
+      },
+      {
+        "hidden_dim": "[128,2]"
+      },
+      {
+        "last_hidden_activation": "False"
+      },
+      {
+        "last_hidden_softmax": "False"
+      },
+      {
+        "fill": "#8696a6"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -10
+      },
+      {
+        "loc": "-220.984375 242"
+      }
+    ]
+  ],
+  "modelParameters": {
+    "pretrained_emb_binary_or_text": "",
+    "add_start_end_for_seq": "true",
+    "model_description": "This example shows how to train/test/predict.",
+    "batch_size": "30",
+    "target": "[\"label\"]",
+    "losses_conf": "{           \"size_average\": true         }",
+    "dataset_type": "classification",
+    "text_preprocessing": "",
+    "embedding_conf": "{         \"word\": {           \"cols\": [\"question_text\", \"answer_text\"],           \"dim\": 300         }       }",
+    "metrics": "[\"auc\", \"accuracy\"]",
+    "losses_type": "CrossEntropyLoss",
+    "pretrained_emb_type": "",
+    "optimizer": "{       \"name\": \"Adam\",       \"params\": {         \"lr\": 0.001       }     }",
+    "vocabulary": "",
+    "data_paths": "{       \"train_data_path\": \"./dataset/demo/train.tsv\",       \"valid_data_path\": \"./dataset/demo/valid.tsv\",       \"test_data_path\": \"./dataset/demo/test.tsv\",       \"predict_data_path\": \"./dataset/demo/predict.tsv\"     }",
+    "losses_inputs": "[\"output\", \"label\"]",
+    "minimum_lr": "",
+    "license": "Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.",
+    "file_with_col_header": "false",
+    "predict_output_name": "predict.tsv",
+    "train_log_name": "train.log",
+    "involve_all_words_in_pretrained_emb": "true",
+    "predict_log_name": "predict.log",
+    "predict_file_header": "{       \"question_text\": 0,       \"answer_text\": 1     }",
+    "lr_decay": "",
+    "max_lengths": "{       \"question_text\": 30,       \"answer_text\": 100     }",
+    "valid_times_per_epoch": "1",
+    "predict_fields": "[\"prediction\", \"confidence\"]",
+    "model_inputs": "{       \"question\": [\"question_text\"],       \"answer\": [\"answer_text\"]     }",
+    "cache_dir": ".cache.demo/",
+    "model_name": "model.nb",
+    "file_header": "{       \"question_text\": 0,       \"answer_text\": 1,       \"label\": 2     }",
+    "save_base_dir": "./models/demo/",
+    "tagging_scheme": "",
+    "batch_num_to_show_results": "10",
+    "epoch_start_lr_decay": "",
+    "use_cache": "true",
+    "tool_version": "1.1.0",
+    "use_gpu": "false",
+    "max_epoch": "3",
+    "test_log_name": "test.log"
+  },
+  "linkFromPortIdProperty": "fromPort",
+  "copiesArrays": true
+}

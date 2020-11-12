@@ -1,0 +1,1898 @@
+{
+  "copiesArrays": true,
+  "linkFromPortIdProperty": "fromPort",
+  "copiesKey": false,
+  "nodeDataArray": [
+    [
+      {
+        "parent": 6
+      },
+      {
+        "title": "KerasModelOutput_1"
+      },
+      {
+        "type": "KerasModelOutput"
+      },
+      {
+        "id": "Keras::function::KerasModelOutput"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_utils.KerasModelOutput"
+      },
+      {
+        "class": "keras_utils"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": []
+      },
+      {
+        "output_shape": "(None)"
+      },
+      {
+        "model-id": "model-0"
+      },
+      {
+        "variable-name": "Y"
+      },
+      {
+        "fill": "#d22a2a"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -2
+      },
+      {
+        "loc": "122.671875 603.0000000000005"
+      }
+    ],
+    [
+      {
+        "parent": 5
+      },
+      {
+        "title": "Embedding_1"
+      },
+      {
+        "type": "Embedding"
+      },
+      {
+        "id": "Keras::embeddings::Embedding"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersEmbedding"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 128, 256)"
+      },
+      {
+        "input_dim": "256000"
+      },
+      {
+        "output_dim": "256"
+      },
+      {
+        "embeddings_initializer": "uniform"
+      },
+      {
+        "embeddings_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "embeddings_constraint": ""
+      },
+      {
+        "mask_zero": "False"
+      },
+      {
+        "input_length": "128"
+      },
+      {
+        "fill": "#4484a0"
+      },
+      {
+        "necessary": [
+          "input_dim",
+          "output_dim"
+        ]
+      },
+      {
+        "key": -3
+      },
+      {
+        "loc": "-70.32812500000017 -110.99999999999997"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Reshape_1"
+      },
+      {
+        "type": "Reshape"
+      },
+      {
+        "id": "Keras::core::Reshape"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersReshape"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 128, 256, 1)"
+      },
+      {
+        "target_shape": "(128, 256, 1)"
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "target_shape"
+        ]
+      },
+      {
+        "key": -4
+      },
+      {
+        "loc": "-70.32812500000017 -5.999999999999993"
+      }
+    ],
+    [
+      {
+        "parent": 3
+      },
+      {
+        "title": "Conv2D_1"
+      },
+      {
+        "type": "Conv2D"
+      },
+      {
+        "id": "Keras::convolutional::Conv2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersConv2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 123, 1, 512)"
+      },
+      {
+        "filters": "512"
+      },
+      {
+        "kernel_size": "(6,256)"
+      },
+      {
+        "strides": "(1, 1)"
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "dilation_rate": "(1, 1)"
+      },
+      {
+        "activation": "relu"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#8073b5"
+      },
+      {
+        "necessary": [
+          "filters",
+          "kernel_size"
+        ]
+      },
+      {
+        "key": -5
+      },
+      {
+        "loc": "-437.32812500000006 98"
+      }
+    ],
+    [
+      {
+        "parent": 3
+      },
+      {
+        "title": "Conv2D_2"
+      },
+      {
+        "type": "Conv2D"
+      },
+      {
+        "id": "Keras::convolutional::Conv2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersConv2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 124, 1, 512)"
+      },
+      {
+        "filters": "512"
+      },
+      {
+        "kernel_size": "(5,256)"
+      },
+      {
+        "strides": "(1, 1)"
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "dilation_rate": "(1, 1)"
+      },
+      {
+        "activation": "relu"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#8073b5"
+      },
+      {
+        "necessary": [
+          "filters",
+          "kernel_size"
+        ]
+      },
+      {
+        "key": -6
+      },
+      {
+        "loc": "-205.32812500000003 98.99999999999996"
+      }
+    ],
+    [
+      {
+        "parent": 3
+      },
+      {
+        "title": "Conv2D_3"
+      },
+      {
+        "type": "Conv2D"
+      },
+      {
+        "id": "Keras::convolutional::Conv2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersConv2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 125, 1, 512)"
+      },
+      {
+        "filters": "512"
+      },
+      {
+        "kernel_size": "(4,256)"
+      },
+      {
+        "strides": "(1, 1)"
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "dilation_rate": "(1, 1)"
+      },
+      {
+        "activation": "relu"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#8073b5"
+      },
+      {
+        "necessary": [
+          "filters",
+          "kernel_size"
+        ]
+      },
+      {
+        "key": -7
+      },
+      {
+        "loc": "58.671875 102.99999999999997"
+      }
+    ],
+    [
+      {
+        "parent": 12
+      },
+      {
+        "title": "MaxPooling2D_1"
+      },
+      {
+        "type": "MaxPooling2D"
+      },
+      {
+        "id": "Keras::pooling::MaxPooling2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersMaxPooling2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 1, 1, 512)"
+      },
+      {
+        "pool_size": "(123, 1)"
+      },
+      {
+        "strides": ""
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "fill": "#e8b418"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -8
+      },
+      {
+        "loc": "-437.32812500000006 207.99999999999994"
+      }
+    ],
+    [
+      {
+        "parent": 12
+      },
+      {
+        "title": "MaxPooling2D_2"
+      },
+      {
+        "type": "MaxPooling2D"
+      },
+      {
+        "id": "Keras::pooling::MaxPooling2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersMaxPooling2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 1, 1, 512)"
+      },
+      {
+        "pool_size": "(124, 1)"
+      },
+      {
+        "strides": ""
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "fill": "#e8b418"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -9
+      },
+      {
+        "loc": "-205.32812499999994 205.99999999999997"
+      }
+    ],
+    [
+      {
+        "parent": 12
+      },
+      {
+        "title": "MaxPooling2D_3"
+      },
+      {
+        "type": "MaxPooling2D"
+      },
+      {
+        "id": "Keras::pooling::MaxPooling2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersMaxPooling2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 1, 1, 512)"
+      },
+      {
+        "pool_size": "(125, 1)"
+      },
+      {
+        "strides": ""
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "fill": "#e8b418"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -10
+      },
+      {
+        "loc": "58.67187500000006 205.99999999999986"
+      }
+    ],
+    [
+      {
+        "parent": 8
+      },
+      {
+        "title": "Concatenate_1"
+      },
+      {
+        "type": "Concatenate"
+      },
+      {
+        "id": "Keras::merge::Concatenate"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersConcatenate"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 4, 1, 512)"
+      },
+      {
+        "axis": "1"
+      },
+      {
+        "fill": "#f38d8d"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -11
+      },
+      {
+        "loc": "-70.3125 305.5"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Flatten_1"
+      },
+      {
+        "type": "Flatten"
+      },
+      {
+        "id": "Keras::core::Flatten"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersFlatten"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 2048)"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -12
+      },
+      {
+        "loc": "-69.984375 400"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Dropout_1"
+      },
+      {
+        "type": "Dropout"
+      },
+      {
+        "id": "Keras::core::Dropout"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersDropout"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 2048)"
+      },
+      {
+        "rate": "0.8"
+      },
+      {
+        "noise_shape": ""
+      },
+      {
+        "seed": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "rate"
+        ]
+      },
+      {
+        "key": -13
+      },
+      {
+        "loc": "-69.984375 496"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Dense_1"
+      },
+      {
+        "type": "Dense"
+      },
+      {
+        "id": "Keras::core::Dense"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersDense"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 32)"
+      },
+      {
+        "units": "32"
+      },
+      {
+        "activation": "relu"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "units"
+        ]
+      },
+      {
+        "key": -14
+      },
+      {
+        "loc": "-69.984375 599"
+      }
+    ],
+    [
+      {
+        "parent": 6
+      },
+      {
+        "title": "KerasModelInput_1"
+      },
+      {
+        "type": "KerasModelInput"
+      },
+      {
+        "id": "Keras::function::KerasModelInput"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_utils.KerasModelInput"
+      },
+      {
+        "class": "keras_utils"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": []
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "x-shape": "[None, 128]"
+      },
+      {
+        "shape-include-batch-size": "True"
+      },
+      {
+        "variable-name": "X"
+      },
+      {
+        "order": "0"
+      },
+      {
+        "fill": "#d22a2a"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -15
+      },
+      {
+        "loc": "-70.984375 -228"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Dense_2"
+      },
+      {
+        "type": "Dense"
+      },
+      {
+        "id": "Keras::core::Dense"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersDense"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 4)"
+      },
+      {
+        "units": "4"
+      },
+      {
+        "activation": "softmax"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "units"
+        ]
+      },
+      {
+        "key": -16
+      },
+      {
+        "loc": "123.015625 380"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Dropout_2"
+      },
+      {
+        "type": "Dropout"
+      },
+      {
+        "id": "Keras::core::Dropout"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersDropout"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 4)"
+      },
+      {
+        "rate": "0.5"
+      },
+      {
+        "noise_shape": ""
+      },
+      {
+        "seed": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "rate"
+        ]
+      },
+      {
+        "key": -17
+      },
+      {
+        "loc": "123.015625 496"
+      }
+    ],
+    [
+      {
+        "parent": 3
+      },
+      {
+        "title": "Conv2D_4"
+      },
+      {
+        "type": "Conv2D"
+      },
+      {
+        "id": "Keras::convolutional::Conv2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersConv2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 126, 1, 512)"
+      },
+      {
+        "filters": "512"
+      },
+      {
+        "kernel_size": "(3,256)"
+      },
+      {
+        "strides": "(1, 1)"
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "dilation_rate": "(1, 1)"
+      },
+      {
+        "activation": "relu"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#8073b5"
+      },
+      {
+        "necessary": [
+          "filters",
+          "kernel_size"
+        ]
+      },
+      {
+        "key": -18
+      },
+      {
+        "loc": "291.671875 99.99999999999997"
+      }
+    ],
+    [
+      {
+        "parent": 12
+      },
+      {
+        "title": "MaxPooling2D_4"
+      },
+      {
+        "type": "MaxPooling2D"
+      },
+      {
+        "id": "Keras::pooling::MaxPooling2D"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersMaxPooling2D"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portId": "top0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portId": "bottom0",
+            "portColor": "#94bdef"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 1, 1, 512)"
+      },
+      {
+        "pool_size": "(126, 1)"
+      },
+      {
+        "strides": ""
+      },
+      {
+        "padding": "valid"
+      },
+      {
+        "data_format": ""
+      },
+      {
+        "fill": "#e8b418"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -20
+      },
+      {
+        "loc": "291.67187500000006 208.99999999999986"
+      }
+    ]
+  ],
+  "copiesArrayObjects": true,
+  "linkToPortIdProperty": "toPort",
+  "class": "GraphLinksModel",
+  "linkDataArray": [
+    {
+      "to": -4,
+      "from": -3,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.328125,
+        -73,
+        -70.328125,
+        -63,
+        -70.328125,
+        -58.5,
+        -70.328125,
+        -58.5,
+        -70.328125,
+        -54,
+        -70.328125,
+        -44
+      ]
+    },
+    {
+      "to": -6,
+      "from": -4,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.32812500000017,
+        32.00000000000001,
+        -70.32812500000017,
+        42.00000000000001,
+        -70.32812500000017,
+        46.499999999999986,
+        -205.328125,
+        46.499999999999986,
+        -205.328125,
+        50.99999999999996,
+        -205.328125,
+        60.99999999999996
+      ]
+    },
+    {
+      "to": -7,
+      "from": -4,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.32812500000017,
+        32.00000000000001,
+        -70.32812500000017,
+        42.00000000000001,
+        -70.32812500000017,
+        48.499999999999986,
+        58.671875,
+        48.499999999999986,
+        58.671875,
+        54.99999999999997,
+        58.671875,
+        64.99999999999997
+      ]
+    },
+    {
+      "to": -5,
+      "from": -4,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.32812500000017,
+        32.00000000000001,
+        -70.32812500000017,
+        42.00000000000001,
+        -70.32812500000017,
+        46,
+        -437.328125,
+        46,
+        -437.328125,
+        50,
+        -437.328125,
+        60
+      ]
+    },
+    {
+      "to": -8,
+      "from": -5,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -437.328125,
+        136,
+        -437.328125,
+        146,
+        -437.328125,
+        152.99999999999997,
+        -437.3281250000002,
+        152.99999999999997,
+        -437.3281250000002,
+        159.99999999999994,
+        -437.3281250000002,
+        169.99999999999994
+      ]
+    },
+    {
+      "to": -9,
+      "from": -6,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -205.328125,
+        136.99999999999994,
+        -205.328125,
+        146.99999999999994,
+        -205.328125,
+        152.49999999999994,
+        -205.32812499999994,
+        152.49999999999994,
+        -205.32812499999994,
+        157.99999999999994,
+        -205.32812499999994,
+        167.99999999999994
+      ]
+    },
+    {
+      "to": -10,
+      "from": -7,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        58.671875,
+        140.99999999999997,
+        58.671875,
+        150.99999999999997,
+        58.671875,
+        154.4999999999999,
+        58.67187500000006,
+        154.4999999999999,
+        58.67187500000006,
+        157.99999999999983,
+        58.67187500000006,
+        167.99999999999983
+      ]
+    },
+    {
+      "to": -11,
+      "from": -9,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -205.32812499999994,
+        243.99999999999994,
+        -205.32812499999994,
+        253.99999999999994,
+        -205.32812499999994,
+        255.74999999999997,
+        -70.3125,
+        255.74999999999997,
+        -70.3125,
+        257.5,
+        -70.3125,
+        267.5
+      ]
+    },
+    {
+      "to": -12,
+      "from": -11,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.3125,
+        343.5,
+        -70.3125,
+        353.5,
+        -70.1484375,
+        353.5,
+        -70.1484375,
+        352,
+        -69.984375,
+        352,
+        -69.984375,
+        362
+      ]
+    },
+    {
+      "to": -13,
+      "from": -12,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -69.984375,
+        438,
+        -69.984375,
+        448,
+        -69.984375,
+        448,
+        -69.984375,
+        448,
+        -69.984375,
+        448,
+        -69.984375,
+        458
+      ]
+    },
+    {
+      "to": -11,
+      "from": -8,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -437.3281250000002,
+        245.99999999999994,
+        -437.3281250000002,
+        255.99999999999994,
+        -437.3281250000002,
+        256.75,
+        -70.3125,
+        256.75,
+        -70.3125,
+        257.5,
+        -70.3125,
+        267.5
+      ]
+    },
+    {
+      "to": -11,
+      "from": -10,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        58.67187500000006,
+        243.99999999999983,
+        58.67187500000006,
+        253.99999999999983,
+        58.67187500000006,
+        255.74999999999991,
+        -70.3125,
+        255.74999999999991,
+        -70.3125,
+        257.5,
+        -70.3125,
+        267.5
+      ]
+    },
+    {
+      "to": -3,
+      "from": -15,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.984375,
+        -190,
+        -70.984375,
+        -180,
+        -70.984375,
+        -169.5,
+        -70.32812500000017,
+        -169.5,
+        -70.32812500000017,
+        -158.99999999999997,
+        -70.32812500000017,
+        -148.99999999999997
+      ]
+    },
+    {
+      "to": -14,
+      "from": -13,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -69.98437500000003,
+        534,
+        -69.98437500000003,
+        544,
+        -69.98437500000003,
+        547.5,
+        -69.984375,
+        547.5,
+        -69.984375,
+        551,
+        -69.984375,
+        561
+      ]
+    },
+    {
+      "to": -16,
+      "from": -14,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -69.984375,
+        637,
+        -69.984375,
+        647,
+        26.515625,
+        647,
+        26.515625,
+        332,
+        123.015625,
+        332,
+        123.015625,
+        342
+      ]
+    },
+    {
+      "to": -17,
+      "from": -16,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        123.015625,
+        418,
+        123.015625,
+        428,
+        123.015625,
+        438,
+        123.015625,
+        438,
+        123.015625,
+        448,
+        123.015625,
+        458
+      ]
+    },
+    {
+      "to": -2,
+      "from": -17,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        123.015625,
+        534,
+        123.015625,
+        544,
+        123.015625,
+        549.5,
+        122.671875,
+        549.5,
+        122.671875,
+        555,
+        122.671875,
+        565
+      ]
+    },
+    {
+      "to": -18,
+      "from": -4,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        -70.32812500000017,
+        32.00000000000001,
+        -70.32812500000017,
+        42.00000000000001,
+        -70.32812500000017,
+        46.999999999999986,
+        291.671875,
+        46.999999999999986,
+        291.671875,
+        51.99999999999997,
+        291.671875,
+        61.99999999999997
+      ]
+    },
+    {
+      "to": -20,
+      "from": -18,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        291.671875,
+        137.99999999999997,
+        291.671875,
+        147.99999999999997,
+        291.671875,
+        154.49999999999991,
+        291.67187500000006,
+        154.49999999999991,
+        291.67187500000006,
+        160.99999999999986,
+        291.67187500000006,
+        170.99999999999986
+      ]
+    },
+    {
+      "to": -11,
+      "from": -20,
+      "toPort": "top0",
+      "fromPort": "bottom0",
+      "points": [
+        291.67187500000006,
+        246.99999999999986,
+        291.67187500000006,
+        256.9999999999999,
+        291.67187500000006,
+        257.24999999999994,
+        -70.3125,
+        257.24999999999994,
+        -70.3125,
+        257.5,
+        -70.3125,
+        267.5
+      ]
+    }
+  ],
+  "params": [],
+  "modelParameters": {
+    "dataset": "custom",
+	"validation_split": "0.2",
+	"shuffle": "True",
+    "epochs": "5",
+    "loss": "categorical_crossentropy",
+    "optimizer": "SGD",
+    "schedule_decay": "0.004",
+    "beta_1": "0.9",
+    "decay": "0.",
+    "rho": "0.9",
+    "beta_2": "0.999",
+    "lr": "0.001",
+    "batch_size": "32",
+    "momentum": "0.9",
+    "enable_nni": "false"
+  },
+  "nniConfigParameters": {
+    "experimentName": "example_default",
+    "codeDir": ".",
+    "useAnnotation": "false",
+    "builtinTunerName": "TPE",
+    "searchSpacePath": "search_space.json",
+    "command": "python TextCnn.py",
+    "maxTrialNum": "10",
+    "searchSpace": "{\n    \"optimizer\":{\"_type\":\"choice\",\"_value\":[\"Adam\", \"SGD\"]},\n    \"learning_rate\":{\"_type\":\"choice\",\"_value\":[0.0001, 0.001, 0.002, 0.005, 0.01]\n}\n}",
+    "maxExecDuration": "1h",
+    "authorName": "default1",
+    "gpuNum": "0",
+    "trainingServicePlatform": "local",
+    "optimizeMode": "maximize",
+    "trialConcurrency": "1"
+  }
+}

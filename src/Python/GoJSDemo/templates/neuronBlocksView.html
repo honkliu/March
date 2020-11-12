@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'html_head.html' %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    {% include 'main_header.html' %}
+    {% include 'left_nav.html' %}
+    <div class="content-wrapper" style="margin-left: 150px;">
+        <div class="content-header" style="height: 60px;background: #ecf0f5">
+            <div style="float: right">
+                {% if not readonly %}
+                    <button type="button" onclick="save()"
+                            class="btn btn-sm" style="margin-right:5px;width:80px;font-size:16px" id="SaveButton"> Save
+                    </button>
+                {% endif %}
+                <button type="button" onclick="preview()"
+                        data-toggle="modal"
+                        class="btn btn-sm" style="margin-right:5px;font-size:16px"> View-Code
+                </button>
+            </div>
+        </div>
+        <div style="background: white">
+            <span onclick="openData()" id="dataButton"
+                  style="cursor:pointer;font-size:20px;width:33%;display: inline-block;text-align: center;padding: 10px 0;">Step1: Data</span>
+            <span onclick="openModel()" id="modelButton"
+                  style="cursor:pointer;font-size:20px;width:33.2%;display: inline-block;text-align: center;padding: 10px 0;">Step2: Model</span>
+            <span onclick="openParameter()" id="parameterButton"
+                  style="cursor:pointer;font-size:20px;width:33.2%;display: inline-block;text-align: center;padding: 10px 0;">Step3: Hyperparameter</span>
+        </div>
+        <div id="dataContent" style="display: none;">
+            <div id="inputParameterContent" style="width: 45%;margin-left: 3%;padding: 20px 0px">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">input-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">use_cache</label>
+                                <div>
+                                    <select tabindex="2" name="use_cache">
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">dataset_type</label>
+                                <input type="text" name="dataset_type" class="form-control"
+                                       placeholder="Enter dataset_type">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">tagging_scheme</label>
+                                <input type="text" name="tagging_scheme" class="form-control"
+                                       placeholder="Enter tagging_scheme">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">data_paths</label>
+                                <input type="text" name="data_paths" class="form-control"
+                                       placeholder="Enter data_paths">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">pretrained_emb_type</label>
+                                <input type="text" name="pretrained_emb_type" class="form-control"
+                                       placeholder="Enter pretrained_emb_type">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">pretrained_emb_binary_or_text</label>
+                                <input type="text" name="pretrained_emb_binary_or_text" class="form-control"
+                                       placeholder="Enter pretrained_emb_binary_or_text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">file_with_col_header</label>
+                                <div>
+                                    <select tabindex="2" name="file_with_col_header">
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">add_start_end_for_seq</label>
+                                <div>
+                                    <select tabindex="2" name="add_start_end_for_seq">
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">involve_all_words_in_pretrained_emb</label>
+                                <div>
+                                    <select tabindex="2" name="involve_all_words_in_pretrained_emb">
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">file_header</label>
+                                <input type="text" name="file_header" class="form-control"
+                                       placeholder="Enter file_header">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">predict_file_header</label>
+                                <input type="text" name="predict_file_header" class="form-control"
+                                       placeholder="Enter predict_file_header">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">model_inputs </label>
+                                <input type="text" name="model_inputs" class="form-control"
+                                       placeholder="Enter model_inputs">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">target</label>
+                                <input type="text" name="target" class="form-control" placeholder="Enter target">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">embedding_conf</label>
+                                <input type="text" name="embedding_conf" class="form-control"
+                                       placeholder="Enter embedding_conf">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="outputParameterContent"
+                 style="width: 45%;margin-left: 52%;margin-top: -1070px;padding-bottom: 450px;">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">output-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">save_base_dir</label>
+                                <input type="text" name="save_base_dir" class="form-control"
+                                       placeholder="Enter save_base_dir">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">model_name</label>
+                                <input type="text" name="model_name" class="form-control"
+                                       placeholder="Enter model_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">train_log_name</label>
+                                <input type="text" name="train_log_name" class="form-control"
+                                       placeholder="Enter train_log_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">test_log_name</label>
+                                <input type="text" name="test_log_name" class="form-control"
+                                       placeholder="Enter test_log_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">predict_log_name</label>
+                                <input type="text" name="predict_log_name" class="form-control"
+                                       placeholder="Enter predict_log_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">predict_fields</label>
+                                <input type="text" name="predict_fields" class="form-control"
+                                       placeholder="Enter predict_fields">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">predict_output_name</label>
+                                <input type="text" name="predict_output_name" class="form-control"
+                                       placeholder="Enter predict_output_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">cache_dir</label>
+                                <input type="text" name="cache_dir" class="form-control" placeholder="Enter cache_dir">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="modelContent">
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Code</h4>
+                        </div>
+                        <div class="modal-body">
+                    <textarea id='codeTextArea' value="">
+                    </textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary pull-left" onclick="copyText()">Copy</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal modal-warning fade" id="modal-warning">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Failed</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id='errorText' style="font-size:16px"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="content" id='mainContent' style="height: calc(100vh - 158px); display: none">
+                <div class="row col-xs-2" style="background: #ecf0f5;height:100%">
+                    <div id="myPaletteDiv" style="height: 100%"></div>
+                </div>
+                <div class="row col-xs-10" id="myDiagramDiv" style="height: 100%"></div>
+                <div class="row col-xs-2" id="infoDraggable" style="height: 100%">
+                    <div id="infoDraggableHandle" class="handle">basic-info</div>
+                    <div id="myInfo" style="height: 95%"></div>
+                </div>
+            </section>
+        </div>
+        <div id="parameterContent" style="display: none;">
+            <div id="trainingParameterContent" style="width: 45%;margin-left: 3%;margin-top: 20px;">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">training-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">vocabulary</label>
+                                <input type="text" name="vocabulary" class="form-control"
+                                       placeholder="Enter vocabulary">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">optimizer</label>
+                                <input type="text" name="optimizer" class="form-control" placeholder="Enter optimizer">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">lr_decay</label>
+                                <input type="text" name="lr_decay" class="form-control" placeholder="Enter lr_decay">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">minimum_lr</label>
+                                <input type="text" name="minimum_lr" class="form-control"
+                                       placeholder="Enter minimum_lr">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">epoch_start_lr_decay</label>
+                                <input type="text" name="epoch_start_lr_decay" class="form-control"
+                                       placeholder="Enter epoch_start_lr_decay">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">use_gpu</label>
+                                <div>
+                                    <select tabindex="2" name="use_gpu">
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">batch_size</label>
+                                <input type="text" name="batch_size" class="form-control"
+                                       placeholder="Enter batch_size">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">batch_num_to_show_results</label>
+                                <input type="text" name="batch_num_to_show_results" class="form-control"
+                                       placeholder="Enter batch_num_to_show_results">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">max_epoch</label>
+                                <input type="text" name="max_epoch" class="form-control" placeholder="Enter max_epoch">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">valid_times_per_epoch</label>
+                                <input type="text" name="valid_times_per_epoch" class="form-control"
+                                       placeholder="Enter valid_times_per_epoch">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">text_preprocessing</label>
+                                <input type="text" name="text_preprocessing" class="form-control"
+                                       placeholder="Enter text_preprocessing">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">max_lengths</label>
+                                <input type="text" name="max_lengths" class="form-control"
+                                       placeholder="Enter max_lengths">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="lossParameterContent"
+                 style="width: 45%;margin-left: 52%;margin-top: -937px;padding-bottom: 550px;">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">model-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group" style="display: none">
+                                <label for="exampleInputEmail1">license</label>
+                                <input type="text" name="license" class="form-control" placeholder="Enter license">
+                            </div>
+                            <div class="form-group" style="display: none">
+                                <label for="exampleInputEmail1">tool_version</label>
+                                <input type="text" name="tool_version" class="form-control"
+                                       placeholder="Enter tool_version">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">model_description</label>
+                                <input type="text" name="model_description" class="form-control"
+                                       placeholder="Enter model_description">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="box-header with-border">
+                        <h3 class="box-title">losses-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">losses_type</label>
+                                <input type="text" name="losses_type" class="form-control"
+                                       placeholder="Enter losses_type">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">losses_conf</label>
+                                <input type="text" name="losses_conf" class="form-control"
+                                       placeholder="Enter losses_conf">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">losses_inputs</label>
+                                <input type="text" name="losses_inputs" class="form-control"
+                                       placeholder="Enter losses_inputs">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="box-header with-border">
+                        <h3 class="box-title">metrics-parameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">metrics</label>
+                                <input type="text" name="metrics" class="form-control" placeholder="Enter metrics">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                <p>New phone +1(800)555-1234</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                <p>nora@example.com</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                <p>Execution time 5 seconds</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="label label-danger pull-right">70%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Update Resume
+                                <span class="label label-success pull-right">95%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Laravel Integration
+                                <span class="label label-warning pull-right">50%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Back End Framework
+                                <span class="label label-primary pull-right">68%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Allow mail redirect
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Other sets of options are available
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Expose author name in posts
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Allow the user to show his name in blog posts
+                        </p>
+                    </div>
+
+                    <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Show me as online
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Turn off notifications
+                            <input type="checkbox" class="pull-right">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Delete chat history
+                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </aside>
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<link rel='stylesheet' href='/assets/modelDetail.css'/>
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+<link rel='stylesheet' href='/assets/DataInspector.css'/>
+<script src="/assets/DataInspector.js"></script>
+<script src="/assets/js/go-debug.js"></script>
+<script src="/assets/neuronBlocksView.js"></script>
+
+<script>
+function save() {
+    var url = window.location.href;
+    var model_json = myDiagram.model.toJson();
+    model_json = convertToSave(model_json);
+    $.getJSON('/jsonSaver', {
+        url: url,
+        json_string: model_json,
+        directory_name: '{{ readonly }}' === 'True' ? 'example' : 'private'
+    }, function (data) {
+        $("#result").text(data.result);
+    });
+    alert('Saved')
+    myDiagram.isModified = false;
+}
+
+function getJsonData(){
+    $.getJSON('/jsonLoader', {
+        model_name: "{{ model_name }}",
+        directory_name: '{{ readonly }}' === 'True' ? 'example' : 'private'
+    }, function (data) {
+        convertModelParametersToShow(data.result['modelParameters']);
+        openData();
+        modelData = data.result;
+    });
+}
+
+function load() {
+    modelData['nodeDataArray'] = convertNodeToShow(modelData['nodeDataArray']);
+    myDiagram.model = go.Model.fromJson(modelData);
+
+    $("#paletteDraggable").draggable({handle: "#paletteDraggableHandle"}).resizable({
+        stop: function () {
+            myPalette.layoutDiagram(true);
+        }
+    });
+
+    var inspector = new Inspector('myInfo', myDiagram,
+        {
+            properties: {
+                "fill": {show: Inspector.showIfPresent, type: 'color'},
+                "key": {show: false},
+                "type": {readOnly: true, show: Inspector.showIfPresent},
+                "title": {readOnly: Inspector.isReadOnly, show: Inspector.showIfPresent},
+                "topArray": {show: false},
+                "leftArray": {show: false},
+                "rightArray": {show: false},
+                "bottomArray": {show: false},
+                "loc": {show: false},
+                "parent": {show: false},
+                "id": {show: false},
+                "framework": {show: false},
+                "class_name": {show: false},
+                "class": {show: false},
+                "output_shape": {show: false},
+                "pic_source": {show: false},
+                "kwargs": {show: false},
+                "necessary": {show: false},
+                "activation": {
+                    show: Inspector.showIfPresent, type: 'select', choices: [
+                        '', 'Softmax', 'ELU', 'SeLU', 'Softplus', 'Softsign', 'ReLU', 'PReLU', 'Tanh',
+                        'Sigmoid', 'Linear'
+                    ]
+                },
+                "keep_dim": {show: Inspector.showIfPresent, type: 'select', choices: ['False', 'True']},
+                "abs_flag": {show: Inspector.showIfPresent, type: 'select', choices: ['False', 'True']},
+                "scale": {show: Inspector.showIfPresent, type: 'select', choices: ['False', 'True']},
+                "batch_norm": {show: Inspector.showIfPresent, type: 'select', choices: ['False', 'True']},
+                "pool_type": {show: Inspector.showIfPresent, type: 'select', choices: ['max', 'mean']},
+                "last_hidden_activation": {
+                    show: Inspector.showIfPresent,
+                    type: 'select',
+                    choices: ['False', 'True']
+                },
+                "last_hidden_softmax": {show: Inspector.showIfPresent, type: 'select', choices: ['False', 'True']},
+                "operation": {
+                    show: Inspector.showIfPresent,
+                    type: 'select',
+                    choices: ['common', 'seq_based', 'dim_based']
+                },
+            },
+        });
+
+}
+</script>
+
+
+</body>
+</html>

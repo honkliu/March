@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'html_head.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+
+  {% include 'main_header.html' %}
+  <!-- Left side column. contains the logo and sidebar -->
+  {% include 'left_nav.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="margin-left: 150px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Document
+      </h1>
+    </section>
+      <section class="content">
+          <div class="row markdown" id="text" style="background-color: white;margin-left: 15px;margin-right: 15px;padding: 15px">
+                <div id="videoDiv" style="display: none">
+                    <div style="width: 50%;float: left;">
+                        <p style="font-size: 30px">Cifar10: A CNN model on the CIFAR10 small images dataset</p>
+                        <video src="/assets/doc/media/cifar10.mp4" controls="controls" style="width: 500px;height:300px">
+                        </video>
+                    </div>
+                    <div style="width: 50%;float: left;">
+                        <p style="font-size: 30px">MNIST: A simple CNN model on the MNIST dataset</p>
+                        <video src="/assets/doc/media/mnist.mp4" controls="controls" style="width: 500px;height:300px">
+                        </video>
+                    </div>
+                    <div style="width: 50%;float: right;">
+                        <p style="font-size: 30px">LSTM: An LSTM model on the IMDB sentiment classification task</p>
+                        <video src="/assets/doc/media/LSTM.mp4" controls="controls" style="width: 500px;height:300px">
+                        </video>
+                    </div>
+                    <div style="width: 50%;float: right;">
+                        <p style="font-size: 30px">TextCNN: A CNN model for text classification task</p>
+                        <video src="/assets/doc/media/MY_TextCNN.mp4" controls="controls" style="width: 500px;height:300px">
+                        </video>
+                    </div>
+                    <div style="width: 50%;float: left;">
+                        <p style="font-size: 30px">ConvToLSTM: A ConvLSTM model for short-term rainfall prediction</p>
+                        <video src="/assets/doc/media/MY_ConvToLSTM.mp4" controls="controls" style="width: 500px;height:300px">
+                        </video>
+                    </div>
+                </div>
+          </div>
+      </section>
+
+
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<script>
+    if('{{docname}}' == 'video'){
+        videoDiv.style.display = 'block'
+    }else{
+        $.get('/assets/doc/{{ docname }}.md',function (data) {
+            document.getElementById('text').innerHTML = marked(data);
+            $('#text img').css('width','100%');
+        })
+    }
+</script>
+</body>
+</html>
