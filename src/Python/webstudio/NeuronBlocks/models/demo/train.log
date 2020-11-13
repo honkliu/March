@@ -1,0 +1,181 @@
+2019-05-28 01:50:39,546 DEBUG ModelConf.py load_from_file 129: Prepare dir for: ./models/demo/predict.tsv
+2019-05-28 01:50:39,562 INFO ModelConf.py load_from_file 354: Activating CPU mode
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 46: Print ModelConf below:
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 47: ================================================================================
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: mode: normal
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: emb_pkl_path: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: problem_path: .cache.demo/problem.pkl
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: loss: {'losses': [{'conf': {'size_average': True}, 'inputs': ['output', 'label'], 'type': 'CrossEntropyLoss'}], 'multiLoss': False}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: test_data_path: ./dataset/demo/test.tsv
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: use_gpu: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: phase: train
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: batch_size_total: 30
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: batch_num_to_show_results: 10
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pretrained_model_path: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: tagging_scheme: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: train_log_path: ./models/demo/train.log
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: max_epoch: 3
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: problem_type: classification
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pretrained_emb_dim: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: input_types: {'word': {'cols': ['question_text', 'answer_text'], 'dim': 300}}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: involve_all_words_in_pretrained_emb: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: log_dir: ./models/demo/
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: epoch_start_lr_decay: 1
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: file_columns: {'answer_text': 1, 'question_text': 0, 'label': 2}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: lr_decay: 1
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: predict_output_path: ./models/demo/predict.tsv
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pretrained_emb_path: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: max_vocabulary: 800000
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: training_params: {'use_gpu': False, 'optimizer': {'name': 'Adam', 'params': {'lr': 0.001}}, 'valid_times_per_epoch': 1, 'batch_num_to_show_results': 10, 'batch_size': 30, 'max_lengths': {'answer_text': 100, 'question_text': 30}, 'max_epoch': 3}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: unicode_fix: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: fixed_lengths: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: train_data_path: ./dataset/demo/train.tsv
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: answer_column_name: ['label']
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: output_layer_id: ['output']
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: metrics: ['auc', 'accuracy']
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: valid_times_per_epoch: 1
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: DBC2SBC: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: params: Namespace(batch_size=None, cache_dir=None, conf_path='model_zoo/demo/conf.json', debug=False, disable_log_file=False, force=False, involve_all_words_in_pretrained_emb=False, learning_rate=None, log_dir=None, make_cache_only=False, max_epoch=None, mode='normal', model_save_dir=None, predict_output_path=None, pretrained_emb_binary_or_text='text', pretrained_emb_path=None, pretrained_emb_type='glove', pretrained_model_path=None, test_data_path=None, train_data_path=None, valid_data_path=None)
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: optimizer_params: {'lr': 0.001}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: conf_path: model_zoo/demo/conf.json
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: tool_version: 1.1.0
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pretrained_emb_binary_or_text: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: language: english
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: conf: {'inputs': {'data_paths': {'valid_data_path': './dataset/demo/valid.tsv', 'test_data_path': './dataset/demo/test.tsv', 'predict_data_path': './dataset/demo/predict.tsv', 'train_data_path': './dataset/demo/train.tsv'}, 'model_inputs': {'question': ['question_text'], 'answer': ['answer_text']}, 'target': ['label'], 'add_start_end_for_seq': True, 'use_cache': True, 'involve_all_words_in_pretrained_emb': True, 'file_with_col_header': False, 'dataset_type': 'classification', 'predict_file_header': {'answer_text': 1, 'question_text': 0}, 'file_header': {'answer_text': 1, 'question_text': 0, 'label': 2}}, 'metrics': ['auc', 'accuracy'], 'architecture': [{'conf': {'word': {'cols': ['question_text', 'answer_text'], 'dim': 300}}, 'layer': 'Embedding'}, {'conf': {'num_layers': 2, 'hidden_dim': 64, 'dropout': 0.2}, 'layer': 'BiLSTM', 'layer_id': 'BiLSTM_-4', 'inputs': ['answer']}, {'conf': {'num_layers': 2, 'hidden_dim': 64, 'dropout': 0.2}, 'layer': 'BiLSTM', 'layer_id': 'BiLSTM_-3', 'inputs': ['question']}, {'conf': {'pool_type': 'max', 'pool_axis': 1}, 'layer': 'Pooling', 'layer_id': 'Pooling_-6', 'inputs': ['BiLSTM_-4']}, {'conf': {'pool_type': 'max', 'pool_axis': 1}, 'layer': 'Pooling', 'layer_id': 'Pooling_-5', 'inputs': ['BiLSTM_-3']}, {'conf': {'operations': ['origin', 'difference', 'dot_multiply']}, 'layer': 'Combination', 'layer_id': 'Combination_-7', 'inputs': ['Pooling_-5', 'Pooling_-6']}, {'conf': {'last_hidden_activation': False, 'activation': 'PReLU', 'last_hidden_softmax': False, 'batch_norm': True, 'hidden_dim': [128, 2]}, 'layer': 'Linear', 'layer_id': 'output', 'inputs': ['Combination_-7'], 'output_layer_flag': True}], 'training_params': {'use_gpu': False, 'optimizer': {'name': 'Adam', 'params': {'lr': 0.001}}, 'valid_times_per_epoch': 1, 'batch_num_to_show_results': 10, 'batch_size': 30, 'max_lengths': {'answer_text': 100, 'question_text': 30}, 'max_epoch': 3}, 'outputs': {'test_log_name': 'test.log', 'predict_log_name': 'predict.log', 'save_base_dir': './models/demo/', 'predict_output_name': 'predict.tsv', 'predict_fields': ['prediction', 'confidence'], 'cache_dir': '.cache.demo/', 'model_name': 'model.nb', 'train_log_name': 'train.log'}, 'license': 'Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.', 'loss': {'losses': [{'conf': {'size_average': True}, 'inputs': ['output', 'label'], 'type': 'CrossEntropyLoss'}]}, 'model_description': 'This example shows how to train/test/predict.', 'tool_version': '1.1.0'}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pretrained_emb_type: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: minimum_lr: 0
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: valid_data_path: ./dataset/demo/valid.tsv
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: save_base_dir: ./models/demo/
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: clip_grad_norm_max_norm: -1
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: pos_label: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: remove_stopwords: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: previous_model_path: None
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: min_sentence_len: 0
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: tokenizer: nltk
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: architecture: [{'conf': {'word': {'cols': ['question_text', 'answer_text'], 'dim': 300}}, 'layer': 'Embedding'}, {'conf': {'num_layers': 2, 'hidden_dim': 64, 'dropout': 0.2}, 'layer': 'BiLSTM', 'layer_id': 'BiLSTM_-4', 'inputs': ['answer']}, {'conf': {'num_layers': 2, 'hidden_dim': 64, 'dropout': 0.2}, 'layer': 'BiLSTM', 'layer_id': 'BiLSTM_-3', 'inputs': ['question']}, {'conf': {'pool_type': 'max', 'pool_axis': 1}, 'layer': 'Pooling', 'layer_id': 'Pooling_-6', 'inputs': ['BiLSTM_-4']}, {'conf': {'pool_type': 'max', 'pool_axis': 1}, 'layer': 'Pooling', 'layer_id': 'Pooling_-5', 'inputs': ['BiLSTM_-3']}, {'conf': {'operations': ['origin', 'difference', 'dot_multiply']}, 'layer': 'Combination', 'layer_id': 'Combination_-7', 'inputs': ['Pooling_-5', 'Pooling_-6']}, {'conf': {'last_hidden_activation': False, 'activation': 'PReLU', 'last_hidden_softmax': False, 'batch_norm': True, 'hidden_dim': [128, 2]}, 'layer': 'Linear', 'layer_id': 'output', 'inputs': ['Combination_-7'], 'output_layer_flag': True}]
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: add_start_end_for_seq: True
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: metrics_post_check: set()
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: batch_size_each_gpu: 30
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: extra_feature: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: file_with_col_header: False
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: optimizer_name: Adam
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: max_lengths: {'answer_text': 100, 'question_text': 30}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: model_save_path: ./models/demo/model.nb
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: use_cache: True
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: cpu_num_workers: -1
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: object_inputs: {'question': ['question_text'], 'answer': ['answer_text']}
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: min_word_frequency: 3
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: cache_dir: .cache.demo/
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: _ModelConf__text_preprocessing: []
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: object_inputs_names: ['question', 'answer']
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 51: predict_fields: ['prediction', 'confidence']
+2019-05-28 01:50:39,578 DEBUG ModelConf.py __init__ 52: ================================================================================
+2019-05-28 01:50:39,578 INFO train.py main 174: Preprocessing... Depending on your corpus size, this step may take a while.
+2019-05-28 01:50:53,688 INFO problem.py build 295: Corpus imported: 2000 legal lines, 0 illegal lines.
+2019-05-28 01:50:53,703 INFO problem.py build 300: 3457 types in word column
+2019-05-28 01:50:53,703 INFO problem.py build 303: 2 types in target column
+2019-05-28 01:50:53,703 DEBUG problem.py build 304: training data dict built
+2019-05-28 01:50:53,719 DEBUG problem.py export_problem 834: Problem saved to .cache.demo/problem.pkl
+2019-05-28 01:50:53,719 INFO train.py save 96: [Cache] problem is saved to .cache.demo/problem.pkl
+2019-05-28 01:50:53,719 INFO train.py save 103: Embedding matrix saved to None
+2019-05-28 01:50:53,719 INFO ModelConf.py back_up 526: Configuration file is backed up to ./models/demo/
+2019-05-28 01:50:53,719 DEBUG train.py back_up 110: Prepare dir: ./models/demo/necessary_cache/
+2019-05-28 01:50:53,719 DEBUG problem.py export_problem 834: Problem saved to ./models/demo/necessary_cache/problem.pkl
+2019-05-28 01:50:53,719 DEBUG train.py back_up 114: Problem .cache.demo/problem.pkl is backed up to ./models/demo/necessary_cache/
+2019-05-28 01:50:53,719 DEBUG train.py main 206: Problem target cell dict: {'0': 0, '1': 1}
+2019-05-28 01:50:53,735 DEBUG Model.py get_conf 108: Layer id: embedding; name: Embedding; input_dims: None; input_ranks: [2]; output_dim: [-1, -1, 300]; output_rank: 3
+2019-05-28 01:50:54,026 DEBUG Model.py get_conf 108: Layer id: BiLSTM_-4; name: BiLSTM; input_dims: [[-1, -1, 300]]; input_ranks: [3]; output_dim: [-1, -1, 128]; output_rank: 3
+2019-05-28 01:50:54,042 DEBUG Model.py get_conf 108: Layer id: BiLSTM_-3; name: BiLSTM; input_dims: [[-1, -1, 300]]; input_ranks: [3]; output_dim: [-1, -1, 128]; output_rank: 3
+2019-05-28 01:50:54,042 DEBUG Model.py get_conf 108: Layer id: Pooling_-6; name: Pooling; input_dims: [[-1, -1, 128]]; input_ranks: [3]; output_dim: [-1, 128]; output_rank: 2
+2019-05-28 01:50:54,042 DEBUG Model.py get_conf 108: Layer id: Pooling_-5; name: Pooling; input_dims: [[-1, -1, 128]]; input_ranks: [3]; output_dim: [-1, 128]; output_rank: 2
+2019-05-28 01:50:54,042 DEBUG Model.py get_conf 108: Layer id: Combination_-7; name: Combination; input_dims: [[-1, 128], [-1, 128]]; input_ranks: [2, 2]; output_dim: [-1, 512]; output_rank: 2
+2019-05-28 01:50:54,042 WARNING Combination.py __init__ 90: The length Combination layer returns is the length of first input
+2019-05-28 01:50:54,042 DEBUG Model.py get_conf 108: Layer id: output; name: Linear; input_dims: [[-1, 512]]; input_ranks: [2]; output_dim: [-1, 2]; output_rank: 2
+2019-05-28 01:50:54,104 DEBUG Model.py __init__ 249: Layer dependencies: {'BiLSTM_-4': set(), 'output': {'Combination_-7'}, 'embedding': set(), 'Pooling_-5': {'BiLSTM_-3'}, 'Pooling_-6': {'BiLSTM_-4'}, 'Combination_-7': {'Pooling_-5', 'Pooling_-6'}, 'BiLSTM_-3': set()}
+2019-05-28 01:50:54,104 DEBUG Model.py get_topological_sequence 332: Topological sequence of nodes: BiLSTM_-4,BiLSTM_-3,Pooling_-6,Pooling_-5,Combination_-7,output
+2019-05-28 01:50:54,104 INFO LearningMachine.py __init__ 42: The embedding matrix is on CPU now, you can modify the weight_on_gpu parameter to change embeddings weight device.
+2019-05-28 01:50:54,104 INFO LearningMachine.py __init__ 43: Model(
+  (layers): ModuleDict(
+    (embedding): Embedding(
+      (embeddings): ModuleDict(
+        (word): Embedding(3457, 300, padding_idx=0)
+      )
+    )
+    (BiLSTM_-4): BiLSTM(
+      (lstm): LSTM(300, 64, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+    )
+    (BiLSTM_-3): BiLSTM(
+      (lstm): LSTM(300, 64, num_layers=2, batch_first=True, dropout=0.2, bidirectional=True)
+    )
+    (Pooling_-6): Pooling()
+    (Pooling_-5): Pooling()
+    (Combination_-7): Combination()
+    (output): Linear(
+      (linear): Sequential(
+        (linear_0): Linear(in_features=512, out_features=128, bias=True)
+        (batch_norm_1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (linear_activate_2): PReLU(num_parameters=1)
+        (linear_3): Linear(in_features=128, out_features=2, bias=True)
+      )
+    )
+  )
+)
+2019-05-28 01:50:54,120 INFO LearningMachine.py __init__ 45: Total trainable parameters: 2713819
+2019-05-28 01:50:54,120 INFO LearningMachine.py __init__ 46: Model built!
+2019-05-28 01:50:54,120 DEBUG LearningMachine.py __init__ 63: Postive label (target index): 1
+2019-05-28 01:50:58,439 INFO problem.py encode 726: ./dataset/demo/train.tsv: 1000 legal samples, 0 illegal samples
+2019-05-28 01:51:03,306 INFO problem.py encode 726: ./dataset/demo/valid.tsv: 500 legal samples, 0 illegal samples
+2019-05-28 01:51:07,557 INFO problem.py encode 726: ./dataset/demo/test.tsv: 500 legal samples, 0 illegal samples
+2019-05-28 01:51:07,557 INFO LearningMachine.py train 136: Training: Epoch 1
+2019-05-28 01:51:07,557 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:51:07,736 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:51:07,738 INFO LearningMachine.py train 154: There are 34 batches during an epoch; validation are conducted every 34 batch
+2019-05-28 01:51:22,106 INFO LearningMachine.py train 303: Epoch 1 batch idx: 10; lr: 0.001000; since last log, loss=0.684434; auc: 0.613932; accuracy: 0.575758
+2019-05-28 01:51:37,841 INFO LearningMachine.py train 303: Epoch 1 batch idx: 20; lr: 0.001000; since last log, loss=0.624480; auc: 0.713777; accuracy: 0.666667
+2019-05-28 01:51:53,490 INFO LearningMachine.py train 303: Epoch 1 batch idx: 30; lr: 0.001000; since last log, loss=0.630001; auc: 0.709771; accuracy: 0.666667
+2019-05-28 01:51:56,927 INFO LearningMachine.py train 311: Valid & Test : Epoch 1
+2019-05-28 01:51:56,927 INFO LearningMachine.py evaluate 397: Starting valid ...
+2019-05-28 01:51:56,943 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:51:56,943 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:51:58,822 INFO LearningMachine.py evaluate 589: Epoch 1, valid auc: 0.721679; accuracy: 0.654000 loss: 0.660429
+2019-05-28 01:51:58,822 INFO LearningMachine.py evaluate 597: Cur result 0.721679 is better than previous best result None, renew the best model now...
+2019-05-28 01:51:59,010 INFO LearningMachine.py evaluate 612: Best model saved to ./models/demo/model.nb
+2019-05-28 01:51:59,010 INFO LearningMachine.py evaluate 397: Starting test ...
+2019-05-28 01:51:59,010 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:51:59,010 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:52:01,759 INFO LearningMachine.py evaluate 589: Epoch 1, test auc: 0.707973; accuracy: 0.650000 loss: 0.658780
+2019-05-28 01:52:01,759 INFO LearningMachine.py train 136: Training: Epoch 2
+2019-05-28 01:52:01,759 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:52:01,821 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:52:01,837 INFO LearningMachine.py train 154: There are 34 batches during an epoch; validation are conducted every 34 batch
+2019-05-28 01:52:10,121 INFO LearningMachine.py train 303: Epoch 2 batch idx: 6; lr: 0.001000; since last log, loss=0.454860; auc: 0.895697; accuracy: 0.800000
+2019-05-28 01:52:22,168 INFO LearningMachine.py train 303: Epoch 2 batch idx: 16; lr: 0.001000; since last log, loss=0.424719; auc: 0.906696; accuracy: 0.840000
+2019-05-28 01:52:36,624 INFO LearningMachine.py train 303: Epoch 2 batch idx: 26; lr: 0.001000; since last log, loss=0.359417; auc: 0.931418; accuracy: 0.860000
+2019-05-28 01:52:43,337 INFO LearningMachine.py train 311: Valid & Test : Epoch 2
+2019-05-28 01:52:43,337 INFO LearningMachine.py evaluate 397: Starting valid ...
+2019-05-28 01:52:43,337 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:52:43,352 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:52:45,557 INFO LearningMachine.py evaluate 589: Epoch 2, valid auc: 0.689352; accuracy: 0.646000 loss: 0.680280
+2019-05-28 01:52:45,557 INFO LearningMachine.py evaluate 615: Cur result 0.689352 is no better than previous best result 0.721679
+2019-05-28 01:52:45,557 INFO LearningMachine.py train 136: Training: Epoch 3
+2019-05-28 01:52:45,557 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:52:45,667 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:52:45,682 INFO LearningMachine.py train 154: There are 34 batches during an epoch; validation are conducted every 34 batch
+2019-05-28 01:52:49,639 INFO LearningMachine.py train 303: Epoch 3 batch idx: 2; lr: 0.001000; since last log, loss=0.201989; auc: 0.991071; accuracy: 0.955556
+2019-05-28 01:53:10,542 INFO LearningMachine.py train 303: Epoch 3 batch idx: 12; lr: 0.001000; since last log, loss=0.191903; auc: 0.989984; accuracy: 0.956667
+2019-05-28 01:53:23,307 INFO LearningMachine.py train 303: Epoch 3 batch idx: 22; lr: 0.001000; since last log, loss=0.154683; auc: 0.995244; accuracy: 0.963333
+2019-05-28 01:53:37,732 INFO LearningMachine.py train 303: Epoch 3 batch idx: 32; lr: 0.001000; since last log, loss=0.140305; auc: 0.994042; accuracy: 0.970000
+2019-05-28 01:53:38,279 INFO LearningMachine.py train 311: Valid & Test : Epoch 3
+2019-05-28 01:53:38,310 INFO LearningMachine.py evaluate 397: Starting valid ...
+2019-05-28 01:53:38,372 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:53:38,388 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:53:40,697 INFO LearningMachine.py evaluate 589: Epoch 3, valid auc: 0.699283; accuracy: 0.660000 loss: 0.830130
+2019-05-28 01:53:40,697 INFO LearningMachine.py evaluate 615: Cur result 0.699283 is no better than previous best result 0.721679
+2019-05-28 01:53:40,775 INFO LearningMachine.py load_model 762: Model ./models/demo/model.nb loaded!
+2019-05-28 01:53:40,775 INFO LearningMachine.py load_model 763: Total trainable parameters: 2713819
+2019-05-28 01:53:40,775 INFO train.py main 249: Testing the best model saved at ./models/demo/model.nb, with ./dataset/demo/test.tsv
+2019-05-28 01:53:45,532 INFO problem.py encode 726: ./dataset/demo/test.tsv: 500 legal samples, 0 illegal samples
+2019-05-28 01:53:45,532 INFO LearningMachine.py evaluate 397: Starting test ...
+2019-05-28 01:53:45,532 INFO corpus_utils.py get_batches 235: Start making batches
+2019-05-28 01:53:45,548 INFO corpus_utils.py get_batches 395: Batches got!
+2019-05-28 01:53:49,259 INFO LearningMachine.py evaluate 591: test auc: 0.707973; accuracy: 0.650000 loss: 0.658780

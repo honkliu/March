@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'html_head.html' %}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    {% include 'main_header.html' %}
+    {% include 'left_nav.html' %}
+    <div class="content-wrapper" style="margin-left: 150px;">
+        <div class="content-header" style="height: 60px;background: #ecf0f5">
+            <div style="float: right">
+                <button type="button" onclick="editParams()"
+                        class="btn btn-sm" style="margin-right:5px;width:80px;font-size:16px" id="ParamsButton"> Params
+                </button>
+                {% if not readonly %}
+                    <button type="button" onclick="save()"
+                            class="btn btn-sm" style="margin-right:5px;width:80px;font-size:16px" id="SaveButton"> Save
+                    </button>
+                {% endif %}
+                <button type="button" onclick="preview()"
+                        data-toggle="modal"
+                        class="btn btn-sm" style="margin-right:5px;font-size:16px"> View-Code
+                </button>
+                <button type="button" onclick="run_jupyter()"
+                        data-toggle="modal"
+                        class="btn btn-sm" style="font-size:16px"> View-Jupyter
+                </button>
+                <button type="button" onclick="download_nni()"
+                        data-toggle="modal"
+                        class="btn btn-sm" style="font-size:16px"> Download-Nii
+                </button>
+            </div>
+        </div>
+
+        <div style="background: white">
+            <span onclick="openData()" id="dataButton"
+                  style="background: lightblue;
+                         cursor:pointer;
+                         font-size:20px;
+                         width:33%;
+                         display: inline-block;
+                         text-align: center;
+                         padding: 10px 0;">
+                  Step1: Data</span>
+            <span onclick="openModel()" id="modelButton"
+                  style="cursor:pointer;
+                         font-size:20px;
+                         width:33.2%;
+                         display: inline-block;
+                         text-align: center;
+                         padding: 10px 0;">
+                  Step2: Model
+            </span>
+            <span onclick="openHyperparameter()" id="hyperparameterButton"
+                  style="cursor:pointer;
+                         font-size:20px;
+                         width:33.2%;
+                         display: inline-block;
+                         text-align: center;
+                         padding: 10px 0;">
+                  Step3: Hyperparameter
+            </span>
+        </div>
+        <div id="dataContent" style="display:none; padding:40px 0px; width: 30%; margin-left: 35%">
+            <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                <form role="form" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">dataset</label>
+                            <div>
+                                <select class="form-control" name="dataset" id="dataset" onchange="datasetChange()">
+                                    <option>mnist</option>
+                                    <option>fashion_mnist</option>
+                                    <option>cifar10</option>
+                                    <option>cifar100</option>
+                                    <option>imdb</option>
+                                    <option>reuters</option>
+                                    <option>boston_housing</option>
+                                    <option>custom</option>
+                                </select>
+                                <p style="color:red;" id="shapeDesc">11</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">validation_split(0-1)</label>
+                            <input type="text" name="validation_split" class="form-control" placeholder="Enter validation_split">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">shuffle</label>
+                            <input type="text" name="shuffle" class="form-control" placeholder="Enter shuffle">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div id="modelContent">
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Code</h4>
+                        </div>
+                        <div class="modal-body">
+                    <textarea id='codeTextArea' value="">
+                    </textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary pull-left" onclick="copyText()">Copy</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-params">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Params</h4>
+                        </div>
+                        <div class="modal-body">
+                            <button type="button" class="btn" onclick="addParam()">ADD</button>
+                            <div id="modal-content">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal modal-warning fade" id="modal-warning">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Failed</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id='errorText' style="font-size:16px"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content" style="height: calc(100vh - 158px); display:none" id="mainContent">
+                <div class="row col-xs-2" style="background: #ecf0f5;height:100%">
+                    <div id="myPaletteDiv" style="height: 100%"></div>
+                </div>
+                <div class="row col-xs-10" id="myDiagramDiv" style="height: 100%"></div>
+                <div class="row col-xs-2" id="infoDraggable" style="height: 100%">
+                    <div id="infoDraggableHandle" class="handle">basic-info</div>
+                    <div id="myInfo" style="height: 95%"></div>
+                </div>
+            </section>
+        </div>
+        <div id="hyperparameterContent" style="display: none; padding:40px 0px;">
+            <div id="default-hyperparameter" style="width:30%; float:left; margin-left:35%">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">default hyperparameter</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">enable nni</label>
+                                <div id = "enable_nni">
+                                    <label style="font-weight:100"><input type="radio" name="radio" value="true" onchange="enableNii()"/>yes</label>
+                                    <label style="font-weight:100; margin-left:20px"><input type="radio" name="radio" value="false" onchange="disableNii()"/>no</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">batch_size</label>
+                                <input type="text" name="batch_size" class="form-control" placeholder="Enter batch_size">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Number of Epoch</label>
+                                <input type="text" name="epochs" class="form-control" placeholder="Enter number of epochs">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Loss Function</label>
+                                <div>
+                                    <select tabindex="2" name="loss" class="form-control">
+                                        <option>mean_squared_error</option>
+                                        <option>mean_absolute_error</option>
+                                        <option>mean_absolute_percentage_error</option>
+                                        <option>mean_squared_logarithmic_error</option>
+                                        <option>squared_hinge</option>
+                                        <option>hinge</option>
+                                        <option>categorical_hinge</option>
+                                        <option>logcosh</option>
+                                        <option>categorical_crossentropy</option>
+                                        <option>sparse_categorical_crossentropy</option>
+                                        <option>binary_crossentropy</option>
+                                        <option>kullback_leibler_divergence</option>
+                                        <option>poisson</option>
+                                        <option>cosine_proximity</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Optimizer Function</label>
+                                <div>
+                                    <select tabindex="3" class="form-control" name="optimizer" id="optimizer" onchange="optimizerChange()">
+                                        <option>SGD</option>
+                                        <option>RMSprop</option>
+                                        <option>Adagrad</option>
+                                        <option>Adadelta</option>
+                                        <option>Adam</option>
+                                        <option>Adamax</option>
+                                        <option>Nadam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group optional" id="lr">
+                                <label for="exampleInputEmail1">Lr</label>
+                                <input type="text" name="lr" class="form-control" placeholder="Enter lr">
+                            </div>
+                            <div class="form-group optional" id="momentum">
+                                <label for="exampleInputEmail1">Momentum</label>
+                                <input type="text" name="momentum" class="form-control" placeholder="Enter momentum">
+                            </div>
+                            <div class="form-group optional" id="beta_1">
+                                <label for="exampleInputEmail1">Beta_1</label>
+                                <input type="text" name="beta_1" class="form-control" placeholder="Enter beta_1">
+                            </div>
+                            <div class="form-group optional" id="beta_2">
+                                <label for="exampleInputEmail1">Beta_2</label>
+                                <input type="text" name="beta_2" class="form-control" placeholder="Enter beta_2">
+                            </div>
+                            <div class="form-group optional" id="rho">
+                                <label for="exampleInputEmail1">Rho</label>
+                                <input type="text" name="rho" class="form-control" placeholder="Enter rho">
+                            </div>
+                            <div class="form-group optional" id="decay">
+                                <label for="exampleInputEmail1">Decay</label>
+                                <input type="text" name="decay" class="form-control" placeholder="Enter decay">
+                            </div>
+                            <div class="form-group optional" id="schedule_decay">
+                                <label for="exampleInputEmail1">Schedule_decay</label>
+                                <input type="text" name="schedule_decay" class="form-control"
+                                       placeholder="Enter schedule_decay">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="nni-model" style="width:30%; margin-left:55%;display:none">
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;" id="nni-config">
+                    <div class="box-header with-border" style="height: 40px;">
+                        <h3 class="box-title">nni-config</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">authorName</label>
+                                <input type="text" name="authorName" class="form-control" placeholder="Enter authorName">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">experimentName</label>
+                                <input type="text" name="experimentName" class="form-control"
+                                       placeholder="Enter experimentName">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">trialConcurrency</label>
+                                <input type="text" name="trialConcurrency" class="form-control"
+                                       placeholder="Enter trialConcurrency">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">maxExecDuration</label>
+                                <input type="text" name="maxExecDuration" class="form-control" placeholder="Enter maxExecDuration">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">maxTrialNum</label>
+                                <input type="text" name="maxTrialNum" class="form-control"
+                                       placeholder="Enter maxTrialNum">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">trainingServicePlatform</label>
+                                <div>
+                                    <select tabindex="3" class="form-control" name="trainingServicePlatform" id="trainingServicePlatform" disabled>
+                                        <option>local</option>
+                                        <option>remote</option>
+                                        <option>pai</option>
+                                        <option>kubeflow</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">searchSpacePath</label>
+                                <input type="text" name="searchSpacePath" class="form-control" placeholder="Enter searchSpacePath" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">useAnnotation</label>
+                                <div>
+                                    <select tabindex="3" class="form-control" name="useAnnotation" id="useAnnotation" disabled>
+                                        <option>true</option>
+                                        <option>false</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">tuner-builtinTunerName</label>
+                                <div>
+                                    <select tabindex="3" class="form-control" name="builtinTunerName" id="builtinTunerName">
+                                        <option>TPE</option>
+                                        <option>Random</option>
+                                        <option>Anneal</option>
+                                        <option>Evolution</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                 <label for="exampleInputEmail1">tuner-classArgs-optimize_mode</label>
+                                 <div>
+                                    <select tabindex="3" class="form-control" name="optimizeMode" id="optimize_mode">
+                                        <option>maximize</option>
+                                        <option>minimize</option>
+                                    </select>
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">trial-command</label>
+                                <input type="text" name="command" class="form-control" placeholder="Enter command">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">trial-codeDir</label>
+                                <input type="text" name="codeDir" class="form-control"
+                                       placeholder="Enter codeDir">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">trial-gpuNum</label>
+                                <input type="text" name="gpuNum" class="form-control"
+                                       placeholder="Enter gpuNum">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="box box-primary" style="border-top:0;margin-bottom: 0px;" id="nni-search-space">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">nni-search-space</h3>
+                    </div>
+                    <form role="form" method="post">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <textarea name="searchSpace" class="form-control" rows="4" style="OVERFLOW: hidden; resize: none;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                <p>New phone +1(800)555-1234</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                <p>nora@example.com</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                <p>Execution time 5 seconds</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="label label-danger pull-right">70%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Update Resume
+                                <span class="label label-success pull-right">95%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Laravel Integration
+                                <span class="label label-warning pull-right">50%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Back End Framework
+                                <span class="label label-primary pull-right">68%</span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Allow mail redirect
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Other sets of options are available
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Expose author name in posts
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Allow the user to show his name in blog posts
+                        </p>
+                    </div>
+
+                    <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Show me as online
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Turn off notifications
+                            <input type="checkbox" class="pull-right">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Delete chat history
+                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </aside>
+    <div class="control-sidebar-bg"></div>
+</div>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+<link rel='stylesheet' href='/assets/DataInspector.css'/>
+<link rel='stylesheet' href='/assets/modelDetail.css'/>
+<script src="/assets/DataInspector.js"></script>
+<script src="/assets/js/go.js"></script>
+<script src="/assets/projectView.js"></script>
+
+<script>
+model_name = '{{model_name}}';
+directory_name = '{{ readonly }}' === 'True' ? 'example' : 'private';
+
+function save() {
+    var url = window.location.href;
+    if(myDiagram == null){
+        alert("please init the model~")
+        openModel();
+        return false;
+    }
+    var model_json = myDiagram.model.toJson();
+    model_json = convertToSave(model_json);
+    $.getJSON('/jsonSaver', {
+        url: url,
+        json_string: model_json,
+        directory_name: directory_name
+    }, function (data) {
+        $("#result").text(data.result);
+    });
+    alert('Saved')
+    myDiagram.isModified = false;
+}
+
+function preview() {
+    if(myDiagram == null){
+        alert("please init the model~")
+        openModel();
+        return false;
+    }
+    if (!check()) {
+        return false;
+    }
+    var model_json = myDiagram.model.toJson();
+    model_json = convertJson(model_json);
+    $.post('/jsonPreview', 
+        {
+            json_string: model_json,
+            model_name: model_name,
+            directory_name: directory_name
+        }, function (data) {
+            console.log(data)
+        if (data.result == 'Succeed') {
+            $("#modal-default").modal('toggle');
+            var page_code = document.getElementById("codeTextArea");
+            page_code.value = data.page_code;
+            var shape_dict = data.model_shape;
+            if (shape_dict == '')
+                alert("Model summary is not existed!");
+            else {
+                for (var key in shape_dict) {
+                    var node = myDiagram.findNodeForKey(key);
+                    var type = shape_dict[key];
+                    myDiagram.findNodeForKey(key).data.output_shape = type;
+                    myDiagram.model.updateTargetBindings(node.data);
+                }
+            }
+
+        } else {
+            $("#modal-warning").modal('toggle');
+            var error = document.getElementById("errorText");
+            error.innerHTML = data.page_code;
+        }
+    });
+}
+
+function download_nni(){
+    //0.check
+    if(document.getElementsByName("radio")[0].checked == false){
+        alert('please enable nni first!')
+        return false;
+    }
+    if(myDiagram == null){
+        alert("please init the model~")
+        openModel();
+        return false;
+    }
+    if (!check()) {
+        return false;
+    }
+    //1.save config.yml and search_space.json
+    var nni_params_keys = ['searchSpace', 'authorName', 'experimentName', 'trialConcurrency', 'maxExecDuration',
+     'maxTrialNum', 'trainingServicePlatform', 'searchSpacePath', 'useAnnotation', 'builtinTunerName', 'optimizeMode',
+     'command', 'codeDir', 'gpuNum'];
+    var nni_params = {};
+    for(var i=0; i<nni_params_keys.length; i++){
+        nni_params[nni_params_keys[i]] = document.getElementsByName(nni_params_keys[i])[0].value;
+    }
+    var url = window.location.href;
+    $.getJSON('/nniConfigSaver', {
+        url: url,
+        nni_params: JSON.stringify(nni_params),
+        directory_name: directory_name
+    }, function (data) {
+        if(data.result == 'Failed'){
+            alert(data.page_code);
+            return false;
+        }
+    });
+    //2.generate python code
+    var model_json = myDiagram.model.toJson();
+    model_json = convertJson(model_json);
+    $.post('/jsonPreview', {
+        json_string: model_json,
+        model_name: model_name,
+        directory_name: directory_name
+    }, function (data) {
+        if (data.result == 'Failed') {
+            $("#modal-warning").modal('toggle');
+            var error = document.getElementById("errorText");
+            error.innerHTML = data.page_code;
+        }
+    });
+    window.location.href = '/downLoadNiiPackage/' + model_name + '/' + directory_name;
+    //download the package
+}
+
+function run_jupyter() {
+    if (!check()) {
+        return false;
+    }
+    if(myDiagram == null){
+        alert("please init the model~")
+        openModel();
+        return false;
+    }
+    var model_json = myDiagram.model.toJson();
+    model_json = convertJson(model_json)
+    $.post('/jsonPreview', {
+        json_string: model_json,
+        model_name: model_name,
+        directory_name: directory_name
+    }, function (data) {
+        if (data.result == 'Succeed') {
+            var shape_dict = data.model_shape;
+            if (shape_dict == '')
+                alert("Model summary is not existed!");
+            else {
+                for (var key in shape_dict) {
+                    var node = myDiagram.findNodeForKey(key);
+                    var type = shape_dict[key];
+                    myDiagram.findNodeForKey(key).data.output_shape = type;
+                    myDiagram.model.updateTargetBindings(node.data);
+                }
+            }
+            alert('starting jupyter! Wait a moment...');
+            $.getJSON('/run_jupyter', {
+                model_name: model_name,
+                directory_name: directory_name
+            }, function (data) {
+                if (data.result == 'Failed') {
+                    alert('Failed reason: ' + data.page_code);
+                }
+                var port = data.page_code['port'];
+                var token = data.page_code['token'];
+                var ip = data.page_code['ip'];
+                var url = data.page_code['url'];
+                var endpoint = 'http://' + ip + ':' + port + '/notebooks/' + url + '?token=' + token;
+                window.open(endpoint, '_blank')
+            });
+
+        } else {
+            $("#modal-warning").modal('toggle');
+            var error = document.getElementById("errorText");
+            error.innerHTML = data.page_code;
+        }
+    });
+}
+
+function getJsonData(){
+    $.getJSON('/jsonLoader', {
+        model_name: model_name,
+        directory_name: directory_name
+    }, function (data) {
+        convertParamsToShow(data.result['params']);
+        convertModelParametersToShow(data.result['modelParameters'], data.result['nniConfigParameters']);
+        openData();
+        modelData = data.result;
+    });
+}
+function load() {
+    modelData['nodeDataArray'] = convertNodeToShow(modelData['nodeDataArray']);
+    myDiagram.model = go.Model.fromJson(modelData);
+
+    $("#paletteDraggable").draggable({handle: "#paletteDraggableHandle"}).resizable({
+        stop: function () {
+            myPalette.layoutDiagram(true);
+        }
+    });
+
+    var inspector = new Inspector('myInfo', myDiagram,
+        {
+            properties: {
+                "fill": {show: Inspector.showIfPresent, type: 'color'},
+                "key": {show: false},
+                "type": {readOnly: true, show: Inspector.showIfPresent},
+                "title": {readOnly: Inspector.isReadOnly, show: Inspector.showIfPresent},
+                "topArray": {show: false},
+                "leftArray": {show: false},
+                "rightArray": {show: false},
+                "bottomArray": {show: false},
+                "loc": {show: false},
+                "parent": {show: false},
+                "id": {show: false},
+                "framework": {show: false},
+                "class_name": {show: false},
+                "class": {show: false},
+                "output_shape": {show: false},
+                "pic_source": {show: false},
+                "kwargs": {show: false},
+                "necessary": {show: false},
+                "activation": {
+                    show: Inspector.showIfPresent, type: 'select', choices: [
+                        '', 'softmax', 'elu', 'selu', 'softplus', 'softsign', 'relu', 'tanh',
+                        'sigmoid', 'hard_sigmoid', 'exponential', 'linear'
+                    ]
+                }
+            },
+        });
+
+}
+</script>
+
+<script id="code">
+
+
+</script>
+</body>
+</html>

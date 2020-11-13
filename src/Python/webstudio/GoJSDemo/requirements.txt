@@ -1,0 +1,11 @@
+flask
+tensorflow==1.14
+keras==2.2.4
+adal
+utils
+git+https://www.github.com/keras-team/keras-contrib.git
+ipython
+nbformat
+hdfs
+torch==1.0.1
+torchvision==0.2.2.post3

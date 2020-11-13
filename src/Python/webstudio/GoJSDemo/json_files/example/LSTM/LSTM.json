@@ -1,0 +1,564 @@
+{
+  "class": "GraphLinksModel",
+  "copiesArrays": true,
+  "copiesArrayObjects": true,
+  "copiesKey": false,
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [
+    [
+      {
+        "parent": 6
+      },
+      {
+        "title": "KerasModelOutput_1"
+      },
+      {
+        "type": "KerasModelOutput"
+      },
+      {
+        "id": "Keras::function::KerasModelOutput"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_utils.KerasModelOutput"
+      },
+      {
+        "class": "keras_utils"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": []
+      },
+      {
+        "output_shape": "(None)"
+      },
+      {
+        "model-id": "model-0"
+      },
+      {
+        "variable-name": "Y"
+      },
+      {
+        "fill": "#d22a2a"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -2
+      },
+      {
+        "loc": "-219.328125 125.99999999999994"
+      }
+    ],
+    [
+      {
+        "parent": 5
+      },
+      {
+        "title": "Embedding_1"
+      },
+      {
+        "type": "Embedding"
+      },
+      {
+        "id": "Keras::embeddings::Embedding"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersEmbedding"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 80, 128)"
+      },
+      {
+        "input_dim": "20000"
+      },
+      {
+        "output_dim": "128"
+      },
+      {
+        "embeddings_initializer": "uniform"
+      },
+      {
+        "embeddings_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "embeddings_constraint": ""
+      },
+      {
+        "mask_zero": "False"
+      },
+      {
+        "input_length": ""
+      },
+      {
+        "fill": "#4484a0"
+      },
+      {
+        "necessary": [
+          "input_dim",
+          "output_dim"
+        ]
+      },
+      {
+        "key": -3
+      },
+      {
+        "loc": "-219.328125 -269"
+      }
+    ],
+    [
+      {
+        "parent": 14
+      },
+      {
+        "title": "LSTM_1"
+      },
+      {
+        "type": "LSTM"
+      },
+      {
+        "id": "Keras::recurrent::LSTM"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersLSTM"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 128)"
+      },
+      {
+        "units": "128"
+      },
+      {
+        "activation": "tanh"
+      },
+      {
+        "recurrent_activation": "hard_sigmoid"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "recurrent_initializer": "orthogonal"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "unit_forget_bias": "True"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "recurrent_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "recurrent_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "dropout": "0.2"
+      },
+      {
+        "recurrent_dropout": "0.2"
+      },
+      {
+        "implementation": "1"
+      },
+      {
+        "return_sequences": "False"
+      },
+      {
+        "return_state": "False"
+      },
+      {
+        "go_backwards": "False"
+      },
+      {
+        "stateful": "False"
+      },
+      {
+        "unroll": "False"
+      },
+      {
+        "fill": "#b787b6"
+      },
+      {
+        "necessary": [
+          "units"
+        ]
+      },
+      {
+        "key": -4
+      },
+      {
+        "loc": "-219.328125 -137"
+      }
+    ],
+    [
+      {
+        "parent": 4
+      },
+      {
+        "title": "Dense_1"
+      },
+      {
+        "type": "Dense"
+      },
+      {
+        "id": "Keras::core::Dense"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_layers.KerasLayersDense"
+      },
+      {
+        "class": "keras_layers"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "top0"
+          }
+        ]
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": "(None, 1)"
+      },
+      {
+        "units": "1"
+      },
+      {
+        "activation": "sigmoid"
+      },
+      {
+        "use_bias": "True"
+      },
+      {
+        "kernel_initializer": "glorot_uniform"
+      },
+      {
+        "bias_initializer": "zeros"
+      },
+      {
+        "kernel_regularizer": ""
+      },
+      {
+        "bias_regularizer": ""
+      },
+      {
+        "activity_regularizer": ""
+      },
+      {
+        "kernel_constraint": ""
+      },
+      {
+        "bias_constraint": ""
+      },
+      {
+        "fill": "#9ba8b8"
+      },
+      {
+        "necessary": [
+          "units"
+        ]
+      },
+      {
+        "key": -5
+      },
+      {
+        "loc": "-219.328125 1"
+      }
+    ],
+    [
+      {
+        "parent": 6
+      },
+      {
+        "title": "KerasModelInput_1"
+      },
+      {
+        "type": "KerasModelInput"
+      },
+      {
+        "id": "Keras::function::KerasModelInput"
+      },
+      {
+        "framework": "Keras"
+      },
+      {
+        "class_name": "openmindsdk.modelbuilder.bricks.keras_utils.KerasModelInput"
+      },
+      {
+        "class": "keras_utils"
+      },
+      {
+        "leftArray": []
+      },
+      {
+        "rightArray": []
+      },
+      {
+        "topArray": []
+      },
+      {
+        "bottomArray": [
+          {
+            "portColor": "#94bdef",
+            "portId": "bottom0"
+          }
+        ]
+      },
+      {
+        "output_shape": ""
+      },
+      {
+        "x-shape": "[None, 80]"
+      },
+      {
+        "shape-include-batch-size": "True"
+      },
+      {
+        "variable-name": "X"
+      },
+      {
+        "order": "0"
+      },
+      {
+        "fill": "#d22a2a"
+      },
+      {
+        "necessary": []
+      },
+      {
+        "key": -6
+      },
+      {
+        "loc": "-216.984375 -396"
+      }
+    ]
+  ],
+  "linkDataArray": [
+    {
+      "from": -3,
+      "fromPort": "bottom0",
+      "points": [
+        -219.328125,
+        -231,
+        -219.328125,
+        -221,
+        -219.328125,
+        -203,
+        -219.328125,
+        -203,
+        -219.328125,
+        -185,
+        -219.328125,
+        -175
+      ],
+      "to": -4,
+      "toPort": "top0"
+    },
+    {
+      "from": -4,
+      "fromPort": "bottom0",
+      "points": [
+        -219.328125,
+        -99,
+        -219.328125,
+        -89,
+        -219.328125,
+        -68,
+        -219.328125,
+        -68,
+        -219.328125,
+        -47,
+        -219.328125,
+        -37
+      ],
+      "to": -5,
+      "toPort": "top0"
+    },
+    {
+      "from": -5,
+      "fromPort": "bottom0",
+      "points": [
+        -219.328125,
+        39,
+        -219.328125,
+        49,
+        -219.328125,
+        63.5,
+        -219.328125,
+        63.5,
+        -219.328125,
+        78,
+        -219.328125,
+        88
+      ],
+      "to": -2,
+      "toPort": "top0"
+    },
+    {
+      "from": -6,
+      "fromPort": "bottom0",
+      "points": [
+        -216.984375,
+        -358,
+        -216.984375,
+        -348,
+        -216.984375,
+        -332.5,
+        -219.328125,
+        -332.5,
+        -219.328125,
+        -317,
+        -219.328125,
+        -307
+      ],
+      "to": -3,
+      "toPort": "top0"
+    }
+  ],
+  "params": [],
+  "modelParameters": {
+    "dataset": "imdb",
+	"validation_split": "0.2",
+	"shuffle": "True",
+    "epochs": "5",
+    "loss": "categorical_crossentropy",
+    "optimizer": "SGD",
+    "schedule_decay": "0.004",
+    "beta_1": "0.9",
+    "decay": "0.",
+    "rho": "0.9",
+    "beta_2": "0.999",
+    "lr": "0.001",
+    "batch_size": "32",
+    "momentum": "0.9",
+    "enable_nni": "false"
+  },
+  "nniConfigParameters": {
+    "experimentName": "example_default",
+    "codeDir": ".",
+    "useAnnotation": "false",
+    "builtinTunerName": "TPE",
+    "searchSpacePath": "search_space.json",
+    "command": "python LSTM.py",
+    "maxTrialNum": "10",
+    "searchSpace": "{\n    \"optimizer\":{\"_type\":\"choice\",\"_value\":[\"Adam\", \"SGD\"]},\n    \"learning_rate\":{\"_type\":\"choice\",\"_value\":[0.0001, 0.001, 0.002, 0.005, 0.01]\n}\n}",
+    "maxExecDuration": "1h",
+    "authorName": "default1",
+    "gpuNum": "0",
+    "trainingServicePlatform": "local",
+    "optimizeMode": "maximize",
+    "trialConcurrency": "1"
+  }
+}
